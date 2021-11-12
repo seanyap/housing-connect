@@ -1,6 +1,6 @@
 import React from "react";
 
-function Searchbar() {
+function SearchBar() {
   return (
     <div id="search">
       <input type="text" placeholder="Enter an address, city or ZIP code" />
@@ -9,4 +9,4 @@ function Searchbar() {
   );
 }
 
-export default Searchbar;
+export default SearchBar;
