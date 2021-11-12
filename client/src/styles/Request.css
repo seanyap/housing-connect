@@ -1,0 +1,26 @@
+.request-comp {
+  border: 1px solid black;
+  padding: 10px;
+  font-size: 14px;
+  display: flex;
+  margin: 15px;
+  justify-content: space-between;
+}
+.request-comp p {
+  margin: 10px;
+}
+.d-a-button button {
+  background-color: white;
+  height: 30px;
+  width: 60px;
+}
+.homeowner {
+  margin: auto;
+}
+.homeowner a {
+  padding-top: 5px;
+}
+img {
+  display: flex;
+  width: 100px;
+}
