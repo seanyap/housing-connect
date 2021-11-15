@@ -61,11 +61,11 @@ onClose = props => {
 
 export default GoogleApiWrapper(
     (props) => ({
-    apiKey: 'AIzaSyAN7Cf3vhbxYqRadzhhgCsUSD-LyJDPk2E'
+    apiKey: 'API-KEY-GOES-HERE'
 }
 ))(MapContainer)
 
 
 //seperate
 // console.log(GoogleApiWrapper({
-//     apikey: 'AIzaSyAN7Cf3vhbxYqRadzhhgCsUSD-LyJDPk2E'
+//     apikey: 'API-KEY-GOES-HERE'
