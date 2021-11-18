@@ -1,12 +1,12 @@
 import React from 'react';
-import NavBar from '../components/NavBar';
+// import NavBar from '../components/NavBar';
 import Request from '../components/Request';
 
 class DashboardPage extends React.Component {
   render() {
     return (
       <div>
-        <NavBar />
+        {/* <NavBar /> */}
         <div class='body'>
           <h2>Your Listings</h2>
           {/* I think we need each listing to have a unique id so that we can connect it through the pages */}

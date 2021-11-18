@@ -1,11 +1,11 @@
 import React from 'react';
-import NavBar from '../components/NavBar';
+// import NavBar from '../components/NavBar';
 
 class LoginPage extends React.Component {
   render() {
     return (
       <div>
-        <NavBar />
+        {/* <NavBar /> */}
         <div class='body'>
           <div class='login'>
             <h2>Sign In</h2>
