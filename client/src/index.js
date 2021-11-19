@@ -4,7 +4,7 @@ import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 import NavBar from "./components/NavBar";
-import App from "./App";
+import App from "./pages/App";
 import ResultPage from "./pages/ResultPage";
 import DashboardPage from "./pages/DashboardPage";
 import LoginPage from "./pages/LoginPage";
