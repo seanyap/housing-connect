@@ -1,0 +1,17 @@
+#nav {
+  /* max-width: 90%; */
+  display: flex;
+  position: fixed;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  z-index: 5;
+}
+
+/* apply when size is bigger than mobile size */
+@media (min-width: 600px) {
+  #nav {
+    /* position: fixed; (regular position has to be relative) */
+    padding: 0 30px;
+  }
+}
