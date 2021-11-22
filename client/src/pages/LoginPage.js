@@ -1,12 +1,13 @@
 import React from 'react';
 // import NavBar from '../components/NavBar';
+import '../styles/login.css';
 
 class LoginPage extends React.Component {
   render() {
     return (
       <div>
         {/* <NavBar /> */}
-        <div class='body'>
+        <div class='page'>
           <div class='login'>
             <h2>Sign In</h2>
             <label for='uname'>Email Address</label>
@@ -31,6 +32,18 @@ class LoginPage extends React.Component {
           </div>
           <div class='signup'>
             <h2>Sign Up</h2>
+            <div class='checkboxes'>
+              <div class='check'>
+                <input type='checkbox' id='tenant-check' />
+                <label for='tenant-check'>Tenant</label>
+              </div>
+
+              <div class='check'>
+                <input type='checkbox' id='owner-check' />
+                <label for='owner-check'>Homeowner</label>
+              </div>
+            </div>
+
             <label for='fname'>Full Name</label>
             <input
               type='text'
