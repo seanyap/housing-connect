@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
-import { Switch, Route, BrowserRouter } from "react-router-dom";
+import { Link, Switch, Route, BrowserRouter } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import App from "./pages/App";
 import ResultPage from "./pages/ResultPage";
@@ -13,8 +13,10 @@ import ListingPage from "./pages/ListingPage";
 
 const routing = (
   <>
-    <NavBar isLoggedIn={false} />
     <BrowserRouter>
+      <Link to="/">
+        <NavBar isLoggedIn={false} />
+      </Link>
       <Switch>
         <Route exact path="/" component={App} />
         <Route path="/houses" component={ResultPage} />
