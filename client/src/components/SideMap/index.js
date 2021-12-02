@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { Map, GoogleApiWrapper, InfoWindow, Marker } from "google-maps-react";
 
-// import "./styles.css";
+import "./styles.css";
 
-const mapStyles = {
-  width: "50%",
-  height: "100%",
-};
+// const mapStyles = {
+//   width: "50%",
+//   height: "100%",
+// };
 
 export class MapContainer extends Component {
   state = {
@@ -32,26 +32,28 @@ export class MapContainer extends Component {
 
   render() {
     return (
-      <Map
-        google={this.props.google}
-        zoom={14}
-        style={mapStyles}
-        initialCenter={{
-          lat: 40.586151,
-          lng: -73.951595,
-        }}
-      >
-        <Marker onClick={this.onMarkerClick} name={"3 Bedroom "} />
-        <InfoWindow
-          marker={this.state.activeMarker}
-          visible={this.state.showingInfoWindow}
-          onClose={this.onClose}
+      <div id="map-container">
+        <Map
+          google={this.props.google}
+          zoom={14}
+          // style={mapStyles}
+          initialCenter={{
+            lat: 40.586151,
+            lng: -73.951595,
+          }}
         >
-          <div>
-            <h4>{this.state.selectedPlace.name}</h4>
-          </div>
-        </InfoWindow>
-      </Map>
+          <Marker onClick={this.onMarkerClick} name={"3 Bedroom "} />
+          <InfoWindow
+            marker={this.state.activeMarker}
+            visible={this.state.showingInfoWindow}
+            onClose={this.onClose}
+          >
+            <div>
+              <h4>{this.state.selectedPlace.name}</h4>
+            </div>
+          </InfoWindow>
+        </Map>
+      </div>
     );
   }
 }
