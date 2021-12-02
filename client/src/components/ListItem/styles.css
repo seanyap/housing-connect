@@ -1,6 +1,23 @@
 #post {
+  height: 300px;
   border: 1px solid #ccc;
   border-radius: 6px;
   margin: 0 10px;
   margin-bottom: 10px;
+  display: flex;
+}
+
+#house-pic {
+  /* width: 50%; */
+  flex: 1;
+  min-width: 325px;
+  height: 100%;
+  overflow: hidden;
+}
+
+#desc {
+  flex: 1;
+  height: 100%;
+  padding: 14px;
+  max-width: 53%;
 }

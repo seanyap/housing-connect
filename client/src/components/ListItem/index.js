@@ -5,7 +5,7 @@ import "./styles.css";
 function ListItem(props) {
   return (
     <div id="post">
-      <img src="" alt="" />
+      <img id="house-pic" src="" alt="" />
       {/* TODO: replace text with props value */}
       <div id="desc">
         <h2>Rent Amount</h2>
