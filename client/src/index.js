@@ -13,11 +13,11 @@ import ListingPage from "./pages/ListingPage";
 
 const routing = (
   <>
-    <NavBar />
+    <NavBar isLoggedIn={false} />
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={App} />
-        <Route path="/result" component={ResultPage} />
+        <Route path="/houses" component={ResultPage} />
         <Route path="/dashboard" component={DashboardPage} />
         <Route path="/login" component={LoginPage} />
         <Route path="/new-listing" component={NewListingPage} />
