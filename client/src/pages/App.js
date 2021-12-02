@@ -4,10 +4,13 @@ import SearchBar from "../components/SearchBar";
 class App extends React.Component {
   render() {
     return (
-      <div id="landing" className="container inner">
-        <h2>Find your next home</h2>
-        <SearchBar />
-      </div>
+      <>
+        <div id="bg-image"></div>
+        <div id="landing">
+          <h2 id="slogan">Find your next home</h2>
+          <SearchBar />
+        </div>
+      </>
     );
   }
 }
