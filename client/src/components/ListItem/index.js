@@ -1,8 +1,10 @@
 import React from "react";
 
+import "./styles.css";
+
 function ListItem(props) {
   return (
-    <div>
+    <div id="post">
       <img src="" alt="" />
       {/* TODO: replace text with props value */}
       <div id="desc">

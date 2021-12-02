@@ -1,0 +1,9 @@
+#result-container {
+  padding-top: 60px;
+}
+
+#posts {
+  width: 50%;
+  position: absolute;
+  left: 50%;
+}

@@ -6,7 +6,7 @@ function NavBar() {
   return (
     // add id nav to up specificity because class has higher specificity than tag selector
     // this modifies the 85% to 90%
-    <nav id="nav" className="container inner">
+    <nav id="nav">
       <h1>Housing Connect</h1>
       <div>
         <a id="login" href="#">
