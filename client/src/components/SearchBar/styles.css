@@ -1,0 +1,28 @@
+#bar {
+  font-size: 20px;
+  width: 100%;
+  display: flex;
+}
+
+#bar input {
+  font-size: inherit;
+  margin: 0;
+  border: 0;
+  border-radius: 4px 0 0 4px;
+  padding: 20px;
+  flex-grow: 3;
+  box-shadow: 0px 0px 8px 0 rgb(0, 0, 0, 0.1);
+}
+
+#bar button {
+  font-size: inherit;
+  border: 0;
+  border-radius: 0 4px 4px 0;
+  padding: 20px 40px;
+  cursor: pointer;
+  background-color: #f9b616;
+}
+
+#bar button:hover {
+  background-color: #e0a414;
+}

@@ -1,17 +1,18 @@
 import React from "react";
 
+import "./styles.css";
+
 function SearchBar() {
   return (
-    <div id="search">
-      <form action="/houses" method="GET">
-        <input
-          name="location"
-          type="text"
-          placeholder="Enter an address, city or ZIP code"
-        />
-        <button>Search</button>
-      </form>
-    </div>
+    <form id="bar" action="/houses" method="GET">
+      <input
+        id="location"
+        name="location"
+        type="text"
+        placeholder="Enter an address, city or ZIP code"
+      />
+      <button>Search</button>
+    </form>
   );
 }
 
