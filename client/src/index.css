@@ -15,6 +15,10 @@ body {
   box-sizing: border-box;
 }
 
+.container {
+  margin-top: 60px;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

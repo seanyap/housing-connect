@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
+
 import * as serviceWorker from "./serviceWorker";
 import { Link, Switch, Route, BrowserRouter } from "react-router-dom";
 import NavBar from "./components/NavBar";
