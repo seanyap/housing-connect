@@ -2,28 +2,28 @@
 const { Model } = require("sequelize");
 
 module.exports = (sequelize, DataTypes) => {
-  class Post extends Model {}
+  class Homeowner extends User {}
 
-  Post.init(
+  Homeowner.init(
     {
-      content: {
+      postings: {
         type: DataTypes.STRING,
         validate: {
-          len: [3, 250],
           notEmpty: true,
         },
       },
     },
     {
       sequelize,
-      modelName: "post",
+      modelName: "homeowner",
     }
   );
 
-  Post.associate = (models) => {
+  Homeowner.associate = (models) => {
     // associations can be defined here
-    models.Post.BelongsTo(models.Listing);
+
+    models.Homeowner.hasMany(models.Listing);
   };
 
-  return Post;
+  return Homeowner;
 };
