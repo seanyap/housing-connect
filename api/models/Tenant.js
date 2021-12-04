@@ -1,30 +1,26 @@
-'use strict';
-const { Model } = require('sequelize');
-
+"use strict";
+const { Model } = require("sequelize");
 
 module.exports = (sequelize, DataTypes) => {
-  class Tenant extends Model {}
+  class Tenant extends User {}
 
-  Tenant.init({
-    firstName: {
-        type: DataTypes.STRING,
-        allowNull: false
+  Tenant.init(
+    {
+      appointments: {
+        type: DataTypes.DATEONLY,
       },
-      lastName: {
-        type: DataTypes.STRING
-        // allow Null defaults to true
-      }
-  }, {
-    sequelize,
-    modelName: 'tenant'
-  });
+    },
+    {
+      sequelize,
+      modelName: "tenant",
+    }
+  );
 
   Tenant.associate = (models) => {
     // associations can be defined here
 
-    
-   // models.Tenant.hasMany(models.Movie)
+    models.Tenant.hasOne(models.User);
   };
 
-  return Genre;
+  return Tenant;
 };
