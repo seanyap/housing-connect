@@ -48,7 +48,8 @@ module.exports = (sequelize, DataTypes) => {
 
   Listing.associate = (models) => {
     // associations can be defined here
-    models.Listing.BelongsTo(models.User);
+ 
+    models.Listing.belongsTo(models.Homeowner);
   };
 
   return Listing;
