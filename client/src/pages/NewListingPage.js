@@ -7,8 +7,9 @@ function NewListingPage() {
     <div class="newlist-container">
     
       <form>
-      <h1 id = "postname"> Get started with your new listing!</h1>
+      
       <div class="formlist-container">
+      <h1 id = "postname"> Get started with your new listing!</h1>
         <label for="images"> Add images of your home! </label><br/>
         <input type="file" id="images" name="images" required /><br/>
         <label for="address"> Enter an address! </label>
@@ -36,33 +37,31 @@ function NewListingPage() {
           required
         /><br/>
         <label for="rentprice"> What is the rent price? </label>
-        <input type="number" placeholder="$ " id="rent" name="rent" required /><br/>
+        <input type="text" placeholder="$ " id="rent" name="rent" required /><br/>
         <label for="income"> Income Range for potential renters/buyers</label>
         <input
-          type="number"
+          type="text"
           placeholder="$ "
           id="income"
           name="income"
           required
         /><br/>
-        <label for="income"> Required credit score of renters/buyers</label>
+        <label for="credit"> Required credit score of renters/buyers</label>
         <input
-          type="number"
+          type="text"
           placeholder="Credit score"
           id="credit"
           name="credit"
           required
         /><br/>
         <div class="checkboxes">
-          <label for="income"> Are there any facilities available?</label>
+          <label for="facilities">Are there any facilities available?</label>
           <input type="radio" id="Yes" name="YesNo" value="Yes" />
           <label for="Yes">Yes</label>
           <input type="radio" id="No" name="YesNo" value="No" />
           <label for="No">No</label>
         </div>
-        <label for="extrainfo">
-          {" "}
-          Is there any other information you would like to add?{" "}
+        <label for="extrainfo">Is there any other information you would like to add?
         </label>
         <br/>
         
