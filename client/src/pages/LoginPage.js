@@ -28,6 +28,28 @@ class LoginPage extends React.Component {
             <div id='signup-part'>
               <h2>Sign Up</h2>
               <form class='signup'>
+                <div class='checkboxes'>
+                  <div class='check'>
+                    <input
+                      type='checkbox'
+                      id='1'
+                      name='box'
+                      class='boxes'
+                      onclick='onlyOne(this.id)'
+                    />
+                    <label for='student-box'>Homeowner</label>
+                  </div>
+                  {/* <br /> */}
+                  <div class='check'>
+                    <input
+                      type='checkbox'
+                      id='2'
+                      class='boxes'
+                      onclick='onlyOne(this.id)'
+                    />
+                    <label for='instructor-box'>Tenant</label>
+                  </div>
+                </div>
                 <label for='firstName'>First Name</label>
                 <input
                   type='text'
