@@ -18,10 +18,7 @@
   /* border-radius: 10px; */
   padding: 10px;
 }
-#signup {
-  background: 0;
-  /* border: 0; */
-}
+
 #signup-part,
 #login {
   margin-top: 100px;
@@ -31,6 +28,7 @@
   background-color: white;
   border-radius: 10px;
 }
+
 login-signin-heading,
 login-signup-heading {
   text-align: center;

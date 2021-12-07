@@ -1,11 +1,12 @@
 import React from "react";
-// import NavBar from '../components/NavBar';
+import NavBar from "../components/NavBar";
 import "../styles/login.css";
 
 class LoginPage extends React.Component {
   render() {
     return (
       <div>
+        <NavBar isLoggedIn={false} whiteBg={false} />
         <div class="body">
           <div class="login-body">
             <div id="login">
