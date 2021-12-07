@@ -29,8 +29,11 @@ export default class ResultPage extends Component {
     const locationName = new URLSearchParams(search)
       .get("location")
       .toLowerCase();
+    // accounts for empty search (perhaps also add required to input form)
     const formattedLocationName =
-      locationName.charAt(0).toUpperCase() + locationName.slice(1);
+      locationName !== ""
+        ? locationName.charAt(0).toUpperCase() + locationName.slice(1)
+        : "Random";
 
     return (
       <>
