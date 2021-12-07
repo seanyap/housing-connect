@@ -25,6 +25,13 @@ export default class ResultPage extends Component {
   }
 
   render() {
+    const search = this.props.location.search;
+    const locationName = new URLSearchParams(search)
+      .get("location")
+      .toLowerCase();
+    const formattedLocationName =
+      locationName.charAt(0).toUpperCase() + locationName.slice(1);
+
     return (
       <>
         <NavBar isLoggedIn={false} whiteBg={true} />
@@ -35,7 +42,12 @@ export default class ResultPage extends Component {
           {/* 3 dummy placeholder */}
           <div id="right">
             <div id="result-location">
-              <h2>Apartments for rent in (locationX)</h2>
+              <h2>
+                Apartments for rent in{" "}
+                <span style={{ color: "#f9b616" }}>
+                  {formattedLocationName}
+                </span>
+              </h2>
             </div>
             <div id="result-posts">
               <ListItem
