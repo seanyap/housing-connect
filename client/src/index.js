@@ -11,6 +11,7 @@ import LoginPage from "./pages/LoginPage";
 import NewListingPage from "./pages/NewListingPage";
 import ListingPage from "./pages/ListingPage";
 import TenantInfoPage from "./pages/TenantInfoPage";
+import Signuppage from "./pages/Signuppage";
 
 const routing = (
   <>
@@ -23,6 +24,7 @@ const routing = (
         <Route path="/tenant-info" component={TenantInfoPage} />
         <Route path="/new-listing" component={NewListingPage} />
         <Route path="/list/:id" component={ListingPage} />
+        <Route path="/signup" component={Signuppage} />
       </Switch>
     </BrowserRouter>
   </>
