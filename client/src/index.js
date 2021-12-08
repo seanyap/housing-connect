@@ -22,7 +22,7 @@ const routing = (
         <Route path='/login' component={LoginPage} />
         <Route exact path='/' component={App} />
         {/* so that the results page wont load unless the user is logged in */}
-        <PrivateRoute path='/houses' component={ResultPage} />
+        <Route path='/houses' component={ResultPage} />
         <Route path='/dashboard' component={DashboardPage} />
         <Route path='/tenant-info' component={TenantInfoPage} />
         <Route path='/new-listing' component={NewListingPage} />
