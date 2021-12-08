@@ -17,6 +17,7 @@ const AuthButton = withRouter(({ history }) => {
     );
   }
 
+  //once they logout sends them back to the landing page
   const logout = () => {
     auth.signout().then(() => history.push('/'));
   };

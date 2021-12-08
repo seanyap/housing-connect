@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createContext } from 'react';
+import React, { useState, createContext } from 'react';
 
 const AuthContext = createContext();
 const { Provider } = AuthContext;
@@ -6,18 +6,18 @@ const { Provider } = AuthContext;
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(false);
 
-  useEffect(() => {
-    fetch('/api/auth/login')
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Unauthenticated');
-        }
+  // useEffect(() => {
+  //   fetch('/api/auth/login')
+  //     .then((response) => {
+  //       if (!response.ok) {
+  //         throw new Error('Unauthenticated');
+  //       }
 
-        return response.json();
-      })
-      .then((body) => setUser(body))
-      .catch((err) => setUser(false));
-  }, []);
+  //       return response.json();
+  //     })
+  //     .then((body) => setUser(body))
+  //     .catch((err) => setUser(false));
+  // }, []);
 
   const authenticate = (email, password) => {
     return fetch('/api/auth/login', {
