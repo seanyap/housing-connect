@@ -2,8 +2,20 @@
   padding-top: 60px;
 }
 
-#posts {
-  width: 50%;
+#right {
+  width: 49%;
   position: absolute;
-  left: 50%;
+  left: 51%;
+}
+
+#result-location {
+  position: fixed;
+  width: 100%;
+  padding: 10px 0;
+  padding: 10px;
+  background-color: white;
+}
+
+#result-posts {
+  margin-top: 60px;
 }

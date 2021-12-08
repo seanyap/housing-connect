@@ -1,5 +1,6 @@
 #map-container {
   position: fixed;
+  left: 10px;
   width: 50%;
   height: 100%;
 }

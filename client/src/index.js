@@ -10,20 +10,21 @@ import DashboardPage from "./pages/DashboardPage";
 import LoginPage from "./pages/LoginPage";
 import NewListingPage from "./pages/NewListingPage";
 import ListingPage from "./pages/ListingPage";
+import TenantInfoPage from "./pages/TenantInfoPage";
+import Signuppage from "./pages/Signuppage";
 
 const routing = (
   <>
     <BrowserRouter>
-      <Link to="/">
-        <NavBar isLoggedIn={false} />
-      </Link>
       <Switch>
         <Route exact path="/" component={App} />
         <Route path="/houses" component={ResultPage} />
         <Route path="/dashboard" component={DashboardPage} />
         <Route path="/login" component={LoginPage} />
+        <Route path="/tenant-info" component={TenantInfoPage} />
         <Route path="/new-listing" component={NewListingPage} />
         <Route path="/list/:id" component={ListingPage} />
+        <Route path="/signup" component={Signuppage} />
       </Switch>
     </BrowserRouter>
   </>
