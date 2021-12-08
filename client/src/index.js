@@ -1,5 +1,6 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { AuthProvider } from './context/AuthContext';
 
 import * as serviceWorker from "./serviceWorker";
 import { Link, Switch, Route, BrowserRouter } from "react-router-dom";
@@ -14,7 +15,7 @@ import TenantInfoPage from "./pages/TenantInfoPage";
 import Signuppage from "./pages/Signuppage";
 
 const routing = (
-  <>
+  <AuthProvider>
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={App} />
@@ -27,10 +28,10 @@ const routing = (
         <Route path="/signup" component={Signuppage} />
       </Switch>
     </BrowserRouter>
-  </>
+  </AuthProvider>
 );
 
-ReactDOM.render(routing, document.getElementById("root"));
+ReactDOM.render(routing, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

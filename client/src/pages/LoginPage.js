@@ -1,12 +1,16 @@
+
 import React from "react";
 import NavBar from "../components/NavBar";
 import "../styles/login.css";
-import {Link} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
+import { AuthContext } from '../context/AuthContext';
 
 class LoginPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      redirectToReferrer: false,
+    failed: false,
      username: '',
      password: '',
     };
@@ -14,6 +18,27 @@ class LoginPage extends React.Component {
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+  
+   fieldChanged = (name) => {
+    return (event) => {
+      let { value } = event.target;
+      this.setState({ [name]: value });
+    };
+  };
+
+  login = (e) => {
+    e.preventDefault();
+    const auth = this.context;
+    let { email, password } = this.state;
+    auth
+      .authenticate(email, password)
+      .then((user) => {
+        this.setState({ redirectToReferrer: true });
+      })
+      .catch((err) => {
+        this.setState({ failed: true });
+      });
+  };
 
   handleInputChange(event) {
     const target = event.target;
@@ -31,8 +56,24 @@ class LoginPage extends React.Component {
     })
     .then(res => res.json()).then(data => console.log(data))
       }
-    
+
   render() {
+    const { from } = this.props.location.state || { from: { pathname: '/' } };
+    const { redirectToReferrer, failed } = this.state;
+
+    if (redirectToReferrer) {
+      return <Redirect to={from} />;
+    }
+
+    let err = '';
+    if (failed) {
+      err = (
+        <div className='alert alert-danger' role='alert'>
+          Login Failed
+        </div>
+      );
+    }
+
     return (
       <div>
         <NavBar isLoggedIn={false} whiteBg={false} />
@@ -49,8 +90,9 @@ class LoginPage extends React.Component {
                 <input type="text" placeholder="Enter Email" name="username"value={this.state.username}
                 onChange={this.handleInputChange} required/>
                 <br />
-                <label for="password">Password</label>
+                <label for='password'>Password</label>
                 <input
+
                   type="password"
                   placeholder="Enter Password"
                   name="password"
@@ -68,9 +110,12 @@ class LoginPage extends React.Component {
             </div>
           </div>
         </div>
+
       // </div>
     );
   }
 }
+
+LoginPage.contextType = AuthContext;
 
 export default LoginPage;

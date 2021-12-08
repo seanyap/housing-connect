@@ -5,14 +5,17 @@ const passport = require('../middlewares/authentication');
 // /api/auth/signup
 router.post('/signup', (req, res) => {
   console.log('POST body: ', req.body);
+
   User.create({
+    // type: 'Homeowner',
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     email: req.body.email,
     password: req.body.password,
+    kindOfUser: req.body.kindOfUser,
   })
     .then((user) => {
-      user.password = undefined;
+      // user.password = undefined;
       req.login(user, () => res.status(201).json(user));
     })
     .catch((err) => {
@@ -27,6 +30,7 @@ router.post('/login', passport.authenticate('local'), (req, res) => {
   res.json(req.user);
 });
 
+//if currently logged in or not
 router.get('/login', (req, res) => {
   if (req.user) {
     res.json(req.user);
@@ -37,7 +41,7 @@ router.get('/login', (req, res) => {
 
 router.post('/logout', (req, res) => {
   req.logout();
-  res.status(200).json({ message: 'Logout successful' });
+  res.status(200).json({ msg: 'Logout successful' });
 });
 
 module.exports = router;
