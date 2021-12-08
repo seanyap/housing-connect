@@ -2,31 +2,30 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { AuthProvider } from './context/AuthContext';
 
-import * as serviceWorker from './serviceWorker';
-import { Link, Switch, Route, BrowserRouter } from 'react-router-dom';
-import NavBar from './components/NavBar';
-import App from './pages/App';
-import ResultPage from './pages/ResultPage';
-import DashboardPage from './pages/DashboardPage';
-import NewListingPage from './pages/NewListingPage';
-import ListingPage from './pages/ListingPage';
-import TenantInfoPage from './pages/TenantInfoPage';
-import PrivateRoute from './components/PrivateRoute';
-
-import LoginPage from './pages/LoginPage';
+import * as serviceWorker from "./serviceWorker";
+import { Link, Switch, Route, BrowserRouter } from "react-router-dom";
+import NavBar from "./components/NavBar";
+import App from "./pages/App";
+import ResultPage from "./pages/ResultPage";
+import DashboardPage from "./pages/DashboardPage";
+import LoginPage from "./pages/LoginPage";
+import NewListingPage from "./pages/NewListingPage";
+import ListingPage from "./pages/ListingPage";
+import TenantInfoPage from "./pages/TenantInfoPage";
+import Signuppage from "./pages/Signuppage";
 
 const routing = (
   <AuthProvider>
     <BrowserRouter>
       <Switch>
-        <Route path='/login' component={LoginPage} />
-        <Route exact path='/' component={App} />
-        {/* so that the results page wont load unless the user is logged in */}
-        <Route path='/houses' component={ResultPage} />
-        <Route path='/dashboard' component={DashboardPage} />
-        <Route path='/tenant-info' component={TenantInfoPage} />
-        <Route path='/new-listing' component={NewListingPage} />
-        <Route path='/list/:id' component={ListingPage} />
+        <Route exact path="/" component={App} />
+        <Route path="/houses" component={ResultPage} />
+        <Route path="/dashboard" component={DashboardPage} />
+        <Route path="/login" component={LoginPage} />
+        <Route path="/tenant-info" component={TenantInfoPage} />
+        <Route path="/new-listing" component={NewListingPage} />
+        <Route path="/list/:id" component={ListingPage} />
+        <Route path="/signup" component={Signuppage} />
       </Switch>
     </BrowserRouter>
   </AuthProvider>
