@@ -2,11 +2,11 @@
 const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-  class Listing extends Model {}
+  class Request extends Model {}
 
-  Listing.init(
+  Request.init(
     {
-      Status: {
+      status: {
         type: DataTypes.STRING,
         validate: {
           notEmpty: true,
@@ -24,48 +24,39 @@ module.exports = (sequelize, DataTypes) => {
           notEmpty: true,
         },
       },
-      //any other info
+      // ListingID: {
+      //   type: DataTypes.INTEGER,
+      //   validate: {
+      //     notEmpty: true,
+      //   },
+      // },
       Description: {
         type: DataTypes.TEXT,
         validate: {
           notEmpty: true,
         },
       },
-      bedroomAmount: {
-        type: DataTypes.INTEGER,
-        validate: {
-          notEmpty: true,
-        },
-      },
-      bathroomAmount: {
-        type: DataTypes.INTEGER,
-        validate: {
-          notEmpty: true,
-        },
-      },
-      creditScore: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
-      income: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
+      // OwnerID: {
+      //   type: DataTypes.STRING,
+      //   validate: {
+      //     notEmpty: true,
+      //   },
+      // },
       DateListed: {
         type: DataTypes.DATEONLY,
       },
     },
     {
       sequelize,
-      modelName: 'listing',
+      modelName: 'request',
     }
   );
 
-  Listing.associate = (models) => {
+  Request.associate = (models) => {
     // associations can be defined here
 
-    models.Listing.belongsTo(models.Homeowner);
+    models.Request.belongsTo(models.Tenant);
   };
 
-  return Listing;
+  return Request;
 };

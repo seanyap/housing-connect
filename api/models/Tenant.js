@@ -1,23 +1,22 @@
-"use strict";
-const { Model } = require("sequelize");
+'use strict';
+const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
   class Tenant extends Model {}
 
   Tenant.init(
-    
     {
-      UserID: {
-        //weather tenant or homeowner
-        type: DataTypes.STRING,
-        validate: {
-          notEmpty: true,
-        },
-      },
-      status: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
+      // UserID: {
+      //   //weather tenant or homeowner
+      //   type: DataTypes.STRING,
+      //   validate: {
+      //     notEmpty: true,
+      //   },
+      // },
+      // status: {
+      //   type: DataTypes.STRING,
+      //   allowNull: false,
+      // },
       firstName: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -45,23 +44,34 @@ module.exports = (sequelize, DataTypes) => {
           },
         },
       },
-      // appointments: {
-      //  // type: DataTypes.ARRAY,
-      //   //id of listing
-
-      // },
-
+      phoneNumber: {
+        type: DataTypes.INTEGER,
+        validate: {
+          isLongEnough: (val) => {
+            if (val.length < 10) {
+              throw new Error('Please Enter a Valid Phone Number');
+            }
+          },
+        },
+      },
+      creditScore: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      income: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
     },
     {
       sequelize,
-      modelName: "tenant",
+      modelName: 'tenant',
     }
   );
 
   Tenant.associate = (models) => {
     // associations can be defined here
-
-    // models.Tenant.hasOne(models.User);
+    models.Tenant.hasMany(models.Request);
   };
   Tenant.beforeSave((tenant, options) => {
     if (tenant.password) {

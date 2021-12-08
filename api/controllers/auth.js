@@ -5,7 +5,9 @@ const passport = require('../middlewares/authentication');
 // /api/auth/signup
 router.post('/signup', (req, res) => {
   console.log('POST body: ', req.body);
+
   User.create({
+    type: 'Homeowner',
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     email: req.body.email,
@@ -28,6 +30,7 @@ router.post('/login', passport.authenticate('local'), (req, res) => {
 });
 
 router.get('/login', (req, res) => {
+  // console.log('GET body: ', req.body);
   if (req.user) {
     res.json(req.user);
   } else {

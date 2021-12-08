@@ -2,27 +2,23 @@
 const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-  class Homeowner extends Model {}
+  class User extends Model {
+    getFullname() {
+      return [this.firstName, this.lastName].join(' ');
+    }
+  }
 
-  Homeowner.init(
+  User.init(
     {
-      // postings: {
-      //   type: DataTypes.STRING,
-      //   validate: {
-      //     notEmpty: true,
-      //   },
-      // },
-      // UserID: {
-      //   //weather tenant or homeowner
-      //   type: DataTypes.STRING,
-      //   validate: {
-      //     notEmpty: true,
-      //   },
-      // },
-      // status: {
-      //   type: DataTypes.STRING,
-      //   allowNull: false,
-      // },
+      //if tenant or homeowner
+      kindOfUser: {
+        type: DataTypes.STRING,
+        validate: {
+          notEmpty: true,
+        },
+      },
+      //some kind of array of listings for both homeowner and tenant
+
       firstName: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -53,20 +49,19 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: 'homeowner',
+      modelName: 'user',
     }
   );
 
-  Homeowner.associate = (models) => {
+  User.associate = (models) => {
     // associations can be defined here
-
-    models.Homeowner.hasMany(models.Listing);
   };
-  Homeowner.beforeSave((homeowner, options) => {
-    if (homeowner.password) {
-      Homeowner.passwordHash = bcrypt.hashSync(Homeowner.password, 10);
-    }
-  });
 
-  return Homeowner;
+  //   User.beforeSave((user, options) => {
+  //     if (user.password) {
+  //       user.passwordHash = bcrypt.hashSync(user.password, 10);
+  //     }
+  //   });
+
+  return User;
 };
