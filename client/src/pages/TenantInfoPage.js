@@ -30,7 +30,7 @@ class TenantInfoPage extends React.Component {
   }
   handleSubmit = (event) => {
      event.preventDefault();
-    fetch('/api/Listings', {
+    fetch('/api/users', {
  
     })
     .then(res => res.json()).then(data => console.log(data))
@@ -40,18 +40,18 @@ class TenantInfoPage extends React.Component {
     return (
       <div>
         <NavBar isLoggedIn={false} whiteBg={false} />
-        <div class='body'>
-          <div class='tenant-body'>
+        <div className='body'>
+          <div className='tenant-body'>
             <h1>Please Input Your Infomation</h1>
             <br />
-            <div class='contact'>
+            <div className='contact'>
               {/* <h2>Contact Information</h2> */}
 
-              <form class="tenant-info" onSubmit={this.handleSubmit}
+              <form className="tenant-info" onSubmit={this.handleSubmit}
             // action="http://localhost:3001/"
             // method="post"
           >
-                <label for="fullName">Full Name:</label>
+                <label htmlFor="fullName">Full Name:</label>
 
                 <input
                   type="text"
@@ -62,7 +62,7 @@ class TenantInfoPage extends React.Component {
                 onChange={this.handleInputChange}
                 />
                 <br />
-                <label for="phone">Phone Number:</label>
+                <label htmlFor="phone">Phone Number:</label>
                 <input
                   type="number"
                   placeholder="Enter Phone Number"
@@ -70,20 +70,19 @@ class TenantInfoPage extends React.Component {
                   value={this.state.phone}
                 onChange={this.handleInputChange}
                 />
-                {/* <br /> */}
-                {/* <label for="email">Email Address:</label>
+                <br />
+                <label htmlFor="email">Email Address:</label>
                 <input
                   type="email"
                   placeholder="Enter Email Address"
                   name="email"
-
-                /> */}
                   value={this.state.email}
-                onChange={this.handleInputChange}
-                />
+                  onChange={this.handleInputChange}
+                  />
+                  
 
                 <br />
-                <label for='credit'>Credit Score:</label>
+                <label htmlFor='credit'>Credit Score:</label>
                 <input
 
                   type="number"
@@ -94,7 +93,7 @@ class TenantInfoPage extends React.Component {
 
                 />
                 <br />
-                <label for='income'>Income:</label>
+                <label htmlFor='income'>Income:</label>
                 <input
 
                   type="number"
@@ -105,7 +104,7 @@ class TenantInfoPage extends React.Component {
 
                 />
                 <br />
-                <label for='employment'>Proof of Employment:</label>
+                <label htmlFor='employment'>Proof of Employment:</label>
                 <input
                   type='file'
                   //   placeholder='Enter Phone Number'
@@ -116,7 +115,7 @@ class TenantInfoPage extends React.Component {
 
                 />
                 <br />
-                <label for='id'>Proof of Identification:</label>
+                <label htmlFor='id'>Proof of Identification:</label>
                 <input
                   type='file'
                   //   placeholder='Enter Phone Number'

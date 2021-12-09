@@ -10,9 +10,8 @@
   width: 100%;
   z-index: -1;
   height: 100vh;
-  
 }
-.formlist-container {
+/* .formlist-container {
   padding: 10px;
   border: 0;
    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06); 
@@ -23,7 +22,18 @@
     margin-right: -50%;
     margin-top: 100px;
     transform: translate(-50%, -50%)
+  
     
+} */
+
+#newlisting {
+  margin-top: 100px;
+  /* background-color: white; */
+  height: fit-content;
+  /* border-radius: 10px; */
+  background-color: white;
+  border-radius: 10px;
+  padding: 15px;
 }
 input {
   margin-top: 10px;
@@ -43,17 +53,25 @@ input {
   border-color: black;
   margin-left: -45px;
 }
-.submitbutton {
+/* .submitbutton {
   background-color: #f9b616;
   width: 550px;
   height: 45px;
   border-radius: 10px;
 
-}
+} */
 
 #postname{
   /* font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
   font-size: xx-large;
   text-align: center;
   
+  }
+  
+  
+  input[type='submit']:hover {
+    background-color: #fcbd29;
+    width: 300px;
+    height: 45px;
+    /* width: 500px; */
   }

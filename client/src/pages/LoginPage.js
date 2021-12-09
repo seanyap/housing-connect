@@ -51,7 +51,7 @@ class LoginPage extends React.Component {
   }
   handleSubmit = (event) => {
      event.preventDefault();
-    fetch('/api/Listings', {
+    fetch('/api/users', {
  
     })
     .then(res => res.json()).then(data => console.log(data))
@@ -77,20 +77,20 @@ class LoginPage extends React.Component {
     return (
       <div>
         <NavBar isLoggedIn={false} whiteBg={false} />
-        <div class="body">
-          <div class="login-body">
+        <div className="body">
+          <div className="login-body">
             <div id="login">
               <h2 id="login-signin-heading">Sign In</h2>
-              <form class="login" 
+              <form className="login" 
             onSubmit={this.handleSubmit}
             // action="http://localhost:3001/"
             // method="post"
           >
-                <label for="username">Email Address</label>
+                <label htmlFor="username">Email Address</label>
                 <input type="text" placeholder="Enter Email" name="username"value={this.state.username}
                 onChange={this.handleInputChange} required/>
                 <br />
-                <label for='password'>Password</label>
+                <label htmlFor='password'>Password</label>
                 <input
 
                   type="password"

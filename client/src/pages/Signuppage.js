@@ -4,6 +4,7 @@ import NavBar from "../components/NavBar";
 import "../styles/signup.css"
 
 class Signuppage extends React.Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -13,6 +14,7 @@ class Signuppage extends React.Component {
          password: '',
           checked: '',
         };
+
     
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -27,55 +29,65 @@ class Signuppage extends React.Component {
           [name]: value,
         });
       }
+     
       handleSubmit = (event) => {
          event.preventDefault();
-        fetch('/api/Listings', {
+        fetch('/api/users', {
      
         })
+      
         .then(res => res.json()).then(data => console.log(data))
          //this.props.history.push("/Listing has been posted!");
           }
+   
   render() {
+    
     return (
+    
       <div>
         <NavBar isLoggedIn={false} whiteBg={false} />
-        <div class="body">
-          <div class="signup-body">
-          
+        <div className="body">
+          <div className="signup-body">
+  
         <div id="signup-part">
           <h2 id="login-signup-heading">Sign Up</h2>
-          <form class="signup" 
+          <form className="signup" 
             onSubmit={this.handleSubmit}
             // action="http://localhost:3001/"
             // method="post"
           >
-            <div class="checkboxes">
-              <div class="check">
+     
+             <div className="checkboxes">
+              <div className="check">
                 <input
                   type="checkbox"
-                  id="1"
+                  // id="1"
                   name="box"
-                  class="boxes"
-                  onclick="onlyOne(this.id)"
+                  // className="boxes"
+                  onclick="selectOnlyThis(this)"
                   value={this.state.checked}
                 onChange={this.handleInputChange}
                 />
-                <label for="student-box">  Homeowner</label>
+                <label htmlFor="student-box">  Homeowner</label>
               </div>
               {/* <br /> */}
-              <div class="check">
+              <div className="check">
                 <input
                   type="checkbox"
-                  id="2"
-                  class="boxes"
+                  // id="2"
+                  className="boxes"
                   onclick="onlyOne(this.id)"
                   value={this.state.checked}
                 onChange={this.handleInputChange}
                 />
-                <label for="instructor-box">  Tenant</label>
+               <label htmlFor="instructor-box">  Tenant</label>
               </div>
             </div>
-            <label for="firstName">First Name</label>
+
+
+
+
+            <label htmlFor="firstName">First Name</label>
             <input
               type="text"
               placeholder="Enter First Name"
@@ -85,14 +97,14 @@ class Signuppage extends React.Component {
                 required
             />
             <br />
-            <label for="lastName">Last Name</label>
+            <label htmlFor="lastName">Last Name</label>
             <input type="text" placeholder="Enter Last Name" name="lastName" 
               value={this.state.lastName}
               onChange={this.handleInputChange}
               required />
           
             <br />
-            <label for="email">Email Address</label>
+            <label htmlFor="email">Email Address</label>
             {/* <br /> */}
             <input
               type="email"
@@ -103,7 +115,7 @@ class Signuppage extends React.Component {
               required
             />
             <br />
-            <label for="password">Password</label>
+            <label htmlFor="password">Password</label>
             {/* <br /> */}
             <input
               type="password"
