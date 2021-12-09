@@ -1,22 +1,12 @@
 'use strict';
 const { Model } = require('sequelize');
+const bcrypt = require('bcryptjs');
 
 module.exports = (sequelize, DataTypes) => {
   class Tenant extends Model {}
 
   Tenant.init(
     {
-      // UserID: {
-      //   //weather tenant or homeowner
-      //   type: DataTypes.STRING,
-      //   validate: {
-      //     notEmpty: true,
-      //   },
-      // },
-      // status: {
-      //   type: DataTypes.STRING,
-      //   allowNull: false,
-      // },
       firstName: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -56,11 +46,15 @@ module.exports = (sequelize, DataTypes) => {
       },
       creditScore: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        // allowNull: false,
       },
       income: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        // allowNull: false,
+      },
+      type: {
+        type: DataTypes.STRING,
+        defaultValue: 'tenant',
       },
     },
     {

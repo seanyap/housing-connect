@@ -1,28 +1,12 @@
 'use strict';
 const { Model } = require('sequelize');
+const bcrypt = require('bcryptjs');
 
 module.exports = (sequelize, DataTypes) => {
   class Homeowner extends Model {}
 
   Homeowner.init(
     {
-      // postings: {
-      //   type: DataTypes.STRING,
-      //   validate: {
-      //     notEmpty: true,
-      //   },
-      // },
-      // UserID: {
-      //   //weather tenant or homeowner
-      //   type: DataTypes.STRING,
-      //   validate: {
-      //     notEmpty: true,
-      //   },
-      // },
-      // status: {
-      //   type: DataTypes.STRING,
-      //   allowNull: false,
-      // },
       firstName: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -50,6 +34,10 @@ module.exports = (sequelize, DataTypes) => {
           },
         },
       },
+      type: {
+        type: DataTypes.STRING,
+        defaultValue: 'homeowner',
+      },
     },
     {
       sequelize,
@@ -62,9 +50,10 @@ module.exports = (sequelize, DataTypes) => {
 
     models.Homeowner.hasMany(models.Listing);
   };
+
   Homeowner.beforeSave((homeowner, options) => {
     if (homeowner.password) {
-      Homeowner.passwordHash = bcrypt.hashSync(Homeowner.password, 10);
+      homeowner.passwordHash = bcrypt.hashSync(homeowner.password, 10);
     }
   });
 
