@@ -29,7 +29,7 @@ class NewListingPage extends React.Component {
   }
   handleSubmit = (event) => {
      event.preventDefault();
-    fetch('/api/Listings', {
+    fetch('/api/listing', {
  
     })
     .then(res => res.json()).then(data => console.log(data))
@@ -57,20 +57,21 @@ class NewListingPage extends React.Component {
     return (
       <>
         <NavBar isLoggedIn={false} whiteBg={false} />
-        <div class="newlist-container">
+        <div className="newlist-container">
+         < div id="newlisting">
           <form
             onSubmit={this.handleSubmit}
             // action="http://localhost:3001/"
             // method="post"
           >
-            <div class="formlist-container">
+            <div className="formlist-container">
               <h1 id="postname"> New listing!</h1>
-              <label for="images"> Images: </label>
+              <label htmlFor="images"> Images: </label>
             <input type="file" id="images" name="images" value={this.state.images}
                 onChange={this.handleInputChange}required />
             <br />
 
-              <label for="address"> Address: </label>
+              <label htmlFor="address"> Address: </label>
               <input
                 type="text"
                 placeholder="Address"
@@ -81,7 +82,7 @@ class NewListingPage extends React.Component {
                 required
               />
               <br />
-              <label for="bedrooms"> Bedrooms: </label>
+              <label htmlFor="bedrooms"> Bedrooms: </label>
               <input
                 type="number"
                 placeholder="Bedrooms"
@@ -92,7 +93,7 @@ class NewListingPage extends React.Component {
                 required
               />
               <br />
-              <label for="bathrooms"> Bathrooms: </label>
+              <label htmlFor="bathrooms"> Bathrooms: </label>
               <input
                 type="number"
                 placeholder="Bathrooms"
@@ -103,7 +104,7 @@ class NewListingPage extends React.Component {
                 required
               />
               <br />
-              <label for="rentprice"> Rent price: </label>
+              <label htmlFor="rentprice"> Rent price: </label>
               <input
                 type="number"
                 placeholder="$ "
@@ -114,7 +115,7 @@ class NewListingPage extends React.Component {
                 required
               />
               <br />
-              <label for="income">
+              <label htmlFor="income">
                 {" "}
                 Income Range for potential renters/buyers:
               </label>
@@ -128,7 +129,7 @@ class NewListingPage extends React.Component {
                 required
               />
               <br />
-              <label for="credit">
+              <label htmlFor="credit">
                 {" "}
                 Required credit score of renters/buyers:
               </label>
@@ -153,7 +154,7 @@ class NewListingPage extends React.Component {
                 
               </div> */}
               <br/>
-              <label for="extrainfo">
+              <label htmlFor="extrainfo">
                 Is there any other information you would like to add?
               </label>
               <br />
@@ -161,11 +162,11 @@ class NewListingPage extends React.Component {
               <input type="text" id="extrainfo" name="extrainfo"  value={this.state.extrainfo}
                 onChange={this.handleInputChange}/>
               <br />
-              <button class="submitbutton" button type="submit">
-                Submit listing!
-              </button>
+              <input type='submit' value='Post Listing!' />
             </div>
           </form>
+         
+        </div>
         </div>
       </>
     );

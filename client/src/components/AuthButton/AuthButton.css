@@ -1,0 +1,17 @@
+#login,
+#signup {
+  color: #666;
+  padding: 7px 15px;
+  text-decoration: none;
+}
+
+#login:hover,
+#signup:hover {
+  color: #222;
+}
+
+#signup {
+  /* background-color: #eee; */
+  border-radius: 4px;
+  box-shadow: 0px 1px 2px 0 rgb(0, 0, 0, 0.1);
+}

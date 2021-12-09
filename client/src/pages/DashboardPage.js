@@ -10,12 +10,12 @@ class DashboardPage extends React.Component {
     return (
       <div>
         <NavBar isLoggedIn={false} whiteBg={false} />
-        <div class="body">
+        <div className="body">
           {/* I think we need each listing to have a unique id so that we can connect it through the pages */}
           {/* here put pic of house and to the right put request component */}
           {/* <p>Picture of the house listing</p> */}
           {/* based on the props for the Request component will return tenant or homeowner Request */}
-          <div class="dash-body">
+          <div className="dash-body">
             <h1 id="top">Your Listings</h1>
             <Request houseName="House 1" user="tenant" status="accepted" />
             <Request houseName="House 2" user="tenant" status="pending" />
