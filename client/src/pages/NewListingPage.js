@@ -9,9 +9,9 @@ class NewListingPage extends React.Component {
       bedrooms: "",
       bathrooms: "",
       rent: "",
-      income: "",
+      reqIncome: "",
       address: "",
-      credit: "",
+      reqCredit: "",
       extrainfo: "",
     };
 
@@ -62,7 +62,7 @@ class NewListingPage extends React.Component {
       <div class="newlist-container">
         <NavBar isLoggedIn={false} whiteBg={false} />
         <form onSubmit={this.handleSubmit} id="newlisting">
-          <h1 id="postname"> New listing!</h1>
+          <h1 id="postname">New listing!</h1>
           {/* <label htmlFor="images"> Images: </label>
                 <input
                   type="file"
@@ -73,7 +73,7 @@ class NewListingPage extends React.Component {
                   required
                 /> */}
           <div id="input-block">
-            <label htmlFor="address"> Address: </label>
+            <label htmlFor="address">Address:</label>
             <input
               type="text"
               placeholder="Address"
@@ -85,7 +85,7 @@ class NewListingPage extends React.Component {
             />
           </div>
           <div id="input-block">
-            <label htmlFor="bedrooms"> Bedrooms: </label>
+            <label htmlFor="bedrooms">Bedrooms:</label>
             <input
               type="number"
               placeholder="Bedrooms"
@@ -97,7 +97,7 @@ class NewListingPage extends React.Component {
             />
           </div>
           <div id="input-block">
-            <label htmlFor="bathrooms"> Bathrooms: </label>
+            <label htmlFor="bathrooms">Bathrooms:</label>
             <input
               type="number"
               placeholder="Bathrooms"
@@ -109,7 +109,7 @@ class NewListingPage extends React.Component {
             />
           </div>
           <div id="input-block">
-            <label htmlFor="rentprice"> Rent price: </label>
+            <label htmlFor="rentprice">Rent price:</label>
             <input
               type="number"
               placeholder="$ "
@@ -128,7 +128,7 @@ class NewListingPage extends React.Component {
               type="number"
               placeholder="$ "
               id="income"
-              name="income"
+              name="reqIncome"
               value={this.state.income}
               onChange={this.handleInputChange}
               required
@@ -142,7 +142,7 @@ class NewListingPage extends React.Component {
               type="number"
               placeholder="Credit score"
               id="credit"
-              name="credit"
+              name="reqCredit"
               value={this.state.credit}
               onChange={this.handleInputChange}
               required
