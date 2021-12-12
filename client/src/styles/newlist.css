@@ -1,58 +1,40 @@
 .newlist-container {
-  display: flex;
-  justify-content: space-evenly;
-  background: url('../images/bg.png') no-repeat;
+  background: url("../images/bg.png") no-repeat;
   background-position: bottom center;
   background-size: cover;
-  position: absolute;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  z-index: -1;
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  /* overflow: hidden; */
 }
-/* .formlist-container {
-  padding: 10px;
-  border: 0;
-   box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06); 
-  background-color: white;
-  position: absolute;
-    top: 45%;
-    left: 50%;
-    margin-right: -50%;
-    margin-top: 100px;
-    transform: translate(-50%, -50%)
-  
-    
-} */
 
 #newlisting {
-  margin-top: 100px;
-  /* background-color: white; */
-  height: fit-content;
-  /* border-radius: 10px; */
   background-color: white;
   border-radius: 10px;
-  padding: 15px;
+  margin-top: 100px;
+  width: 500px;
+  padding: 20px;
+  /* margin: 0 auto; */
 }
+
 input {
   margin-top: 10px;
   margin-bottom: 10px;
   margin-left: 5px;
   padding: 10px;
   border-radius: 10px;
-  border: 100px;
-
-  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06); 
+  /* border: 100px; */
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
 }
 
-.checkboxes {
+/* .checkboxes {
   display: flex;
   justify-content: space-evenly;
   margin-bottom: 10px;
   border-color: black;
   margin-left: -45px;
-}
+} */
 /* .submitbutton {
   background-color: #f9b616;
   width: 550px;
@@ -61,17 +43,13 @@ input {
 
 } */
 
-#postname{
-  /* font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
-  font-size: xx-large;
+#postname {
+  font-size: 24px;
   text-align: center;
-  
-  }
-  
-  
-  input[type='submit']:hover {
-    background-color: #fcbd29;
-    width: 300px;
-    height: 45px;
-    /* width: 500px; */
-  }
+}
+
+#listing-submit {
+  background-color: #fcbd29;
+  border: none;
+  width: 100%;
+}

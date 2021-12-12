@@ -7,4 +7,8 @@ router.get("/", (req, res) => {
   res.json({ rent: "1000", address: "123 John Street, New york" });
 });
 
+router.post("/", (req, res) => {
+  console.log(req.body);
+});
+
 module.exports = router;

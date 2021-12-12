@@ -1,10 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { AuthProvider } from './context/AuthContext';
+import React from "react";
+import ReactDOM from "react-dom";
+import { AuthProvider } from "./context/AuthContext";
 
 import * as serviceWorker from "./serviceWorker";
-import { Link, Switch, Route, BrowserRouter } from "react-router-dom";
-import NavBar from "./components/NavBar";
+import { Switch, Route, BrowserRouter } from "react-router-dom";
+
 import App from "./pages/App";
 import ResultPage from "./pages/ResultPage";
 import DashboardPage from "./pages/DashboardPage";
@@ -31,7 +31,7 @@ const routing = (
   </AuthProvider>
 );
 
-ReactDOM.render(routing, document.getElementById('root'));
+ReactDOM.render(routing, document.getElementById("root"));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
