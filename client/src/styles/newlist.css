@@ -18,7 +18,7 @@
   /* margin: 0 auto; */
 }
 
-input {
+#input-block input {
   margin-top: 10px;
   margin-bottom: 10px;
   margin-left: 5px;
@@ -51,5 +51,7 @@ input {
 #listing-submit {
   background-color: #fcbd29;
   border: none;
+  border-radius: 10px;
   width: 100%;
+  margin-top: 10px;
 }
