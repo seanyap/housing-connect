@@ -1,11 +1,14 @@
 import React from "react";
 import NavBar from "../components/NavBar";
+import { Redirect } from "react-router";
 
 import "../styles/newlist.css";
 class NewListingPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      error: false,
+      success: false,
       bedrooms: "",
       bathrooms: "",
       rent: "",
@@ -58,9 +61,21 @@ class NewListingPage extends React.Component {
   };
 
   render() {
+    if (this.state.success) return <Redirect to="/dashboard" />;
+
+    let errorMessage = null;
+    if (this.state.error) {
+      errorMessage = (
+        <div className="alert alert-danger">
+          There was an error saving this post.
+        </div>
+      );
+    }
+
     return (
       <div class="newlist-container">
         <NavBar isLoggedIn={false} whiteBg={false} />
+        {errorMessage}
         <form onSubmit={this.handleSubmit} id="newlisting">
           <h1 id="postname">New listing!</h1>
           {/* <label htmlFor="images"> Images: </label>
