@@ -73,7 +73,7 @@ class NewListingPage extends React.Component {
     }
 
     return (
-      <div class="newlist-container">
+      <div className="newlist-container">
         <NavBar isLoggedIn={false} whiteBg={false} />
         {errorMessage}
         <form onSubmit={this.handleSubmit} id="newlisting">

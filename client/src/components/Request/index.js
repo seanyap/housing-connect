@@ -7,10 +7,10 @@ function Request(props) {
   //this is if they are a tenant
   if (props.user === 'tenant') {
     return (
-      <div class='request-comp tenant request main'>
+      <div className='request-comp tenant request main'>
         {/* <img src='{props.imageURL}' alt='' /> */}
         <p>Image of House</p>
-        <div class='info'>
+        <div className='info'>
           <p>{props.houseName}</p>
           <p>Request Status: {props.status}</p>
         </div>
@@ -20,16 +20,16 @@ function Request(props) {
   //this is if they are a homeowner
   else {
     return (
-      <div class='request-comp homeowner request main'>
+      <div className='request-comp homeowner request main'>
         <p>Image of House</p>
         {/* <img src='{props.imageURL}' alt='' /> */}
-        <div class='info'>
+        <div className='info'>
           <a href='{props.tenantForm}'>
             {props.firstName} {props.lastName} Jane Doe Info
           </a>
-          <div class='d-a-button'>
-            <button class='w3-button w3-green'>Accept</button>
-            <button class='w3-button w3-red'>Decline</button>
+          <div className='d-a-button'>
+            <button className='w3-button w3-green'>Accept</button>
+            <button className='w3-button w3-red'>Decline</button>
           </div>
         </div>
       </div>
