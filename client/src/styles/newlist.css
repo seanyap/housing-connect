@@ -49,9 +49,13 @@
 }
 
 #listing-submit {
-  background-color: #fcbd29;
+  background-color: #f9b616;
   border: none;
   border-radius: 10px;
   width: 100%;
   margin-top: 10px;
+}
+
+#listing-submit:hover {
+  background-color: #e0a414;
 }
