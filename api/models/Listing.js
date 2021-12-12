@@ -1,32 +1,19 @@
-'use strict';
-const { Model } = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 
 module.exports = (sequelize, DataTypes) => {
   class Listing extends Model {}
 
   Listing.init(
     {
-      Status: {
+      address: {
         type: DataTypes.STRING,
         validate: {
           notEmpty: true,
         },
       },
-      Address: {
-        type: DataTypes.STRING,
-        validate: {
-          notEmpty: true,
-        },
-      },
-      Price: {
+      price: {
         type: DataTypes.INTEGER,
-        validate: {
-          notEmpty: true,
-        },
-      },
-      //any other info
-      Description: {
-        type: DataTypes.TEXT,
         validate: {
           notEmpty: true,
         },
@@ -47,17 +34,14 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
-      income: {
+      minIncome: {
         type: DataTypes.INTEGER,
         allowNull: false,
-      },
-      DateListed: {
-        type: DataTypes.DATEONLY,
       },
     },
     {
       sequelize,
-      modelName: 'listing',
+      modelName: "listing",
     }
   );
 
