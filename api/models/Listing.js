@@ -12,29 +12,29 @@ module.exports = (sequelize, DataTypes) => {
           notEmpty: true,
         },
       },
-      price: {
+      rent: {
         type: DataTypes.INTEGER,
         validate: {
           notEmpty: true,
         },
       },
-      bedroomAmount: {
+      bedrooms: {
         type: DataTypes.INTEGER,
         validate: {
           notEmpty: true,
         },
       },
-      bathroomAmount: {
+      bathrooms: {
         type: DataTypes.INTEGER,
         validate: {
           notEmpty: true,
         },
       },
-      creditScore: {
+      reqCredit: {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
-      minIncome: {
+      reqIncome: {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
