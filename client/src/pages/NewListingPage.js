@@ -9,11 +9,11 @@ class NewListingPage extends React.Component {
     this.state = {
       error: false,
       success: false,
+      address: "",
       bedrooms: "",
       bathrooms: "",
       rent: "",
       reqIncome: "",
-      address: "",
       reqCredit: "",
       extrainfo: "",
     };
