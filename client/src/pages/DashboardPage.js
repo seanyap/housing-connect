@@ -1,11 +1,26 @@
 import React from "react";
-// import NavBar from '../components/NavBar';
 import Request from "../components/Request";
 import NavBar from "../components/NavBar";
-
+import Posts from "../components/Posts";
 import "../styles/dashboard.css";
-
+import { Link, Redirect } from "react-router-dom";
 class DashboardPage extends React.Component {
+  state = {
+    listings: [],
+  };
+  componentDidMount() {
+    fetch("/api/listings")
+      .then((res) => res.json())
+      .then((listings) => {
+        this.setState({
+          listings: listings.map((listing, index) => (
+            <Posts {...listing} key={index} />
+          )),
+        });
+      })
+      .catch((err) => console.log("API ERROR: ", err));
+  }
+
   render() {
     return (
       <div>
@@ -17,9 +32,13 @@ class DashboardPage extends React.Component {
           {/* based on the props for the Request component will return tenant or homeowner Request */}
           <div className="dash-body">
             <h1 id="top">Your Listings</h1>
-            <Request houseName="House 1" user="tenant" status="accepted" />
+            {/* <Request houseName="House 1" user="tenant" status="accepted" />
             <Request houseName="House 2" user="tenant" status="pending" />
-            <Request houseName="House 3" user="homeowner" />
+            <Request houseName="House 3" user="homeowner" /> */}
+            {this.state.listings}
+            <Link to="/" className="btn btn-primary">
+              Home Page
+            </Link>
           </div>
         </div>
       </div>

@@ -26,6 +26,7 @@ const routing = (
         <Route path="/new-listing" component={NewListingPage} />
         <Route path="/list/:id" component={ListingPage} />
         <Route path="/signup" component={Signuppage} />
+        
       </Switch>
     </BrowserRouter>
   </AuthProvider>
