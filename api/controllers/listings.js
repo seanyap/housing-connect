@@ -1,14 +1,17 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const db = require("../models");
+const db = require('../models');
 const { Listing } = db;
 
 // route handlers
-router.get("/", (req, res) => {
+router.get('/', (req, res) => {
   // retrieve all listings from database
-  Listing.findAll({}).then((listings) => res.json(listings));
+  Listing.findAll({}).then((listings) => {
+    console.log(listings);
+    res.json(listings);
+  });
 });
-router.get("/:id", (req, res) => {
+router.get('/:id', (req, res) => {
   const { id } = req.params;
   Listing.findByPk(id).then((listing) => {
     if (!listing) {
@@ -18,7 +21,7 @@ router.get("/:id", (req, res) => {
     res.json(listing);
   });
 });
-router.post("/", (req, res) => {
+router.post('/', (req, res) => {
   const { address, rent, bedrooms, bathrooms, reqIncome, reqCredit } = req.body;
 
   Listing.create({

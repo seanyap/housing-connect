@@ -2,6 +2,20 @@
   margin-top: 100px;
   margin-bottom: 15px;
 }
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9b616;
+  /* width: 100px;
+  height: 40px; */
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.home:hover {
+  background-color: #e0a414;
+}
 
 .dash-body {
   display: flex;

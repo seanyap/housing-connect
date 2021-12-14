@@ -23,26 +23,26 @@ module.exports = (sequelize, DataTypes) => {
           isEmail: true,
         },
       },
-      passwordHash: { type: DataTypes.STRING },
-      password: {
-        type: DataTypes.VIRTUAL,
-        validate: {
-          isLongEnough: (val) => {
-            if (val.length < 7) {
-              throw new Error('Please choose a longer password');
-            }
-          },
-        },
-      },
+      // passwordHash: { type: DataTypes.STRING },
+      // password: {
+      //   type: DataTypes.VIRTUAL,
+      // validate: {
+      //   isLongEnough: (val) => {
+      //     if (val.length < 7) {
+      //       throw new Error('Please choose a longer password');
+      //     }
+      //   },
+      // },
+      // },
       phoneNumber: {
-        type: DataTypes.INTEGER,
-        validate: {
-          isLongEnough: (val) => {
-            if (val.length < 10) {
-              throw new Error('Please Enter a Valid Phone Number');
-            }
-          },
-        },
+        type: DataTypes.STRING,
+        // validate: {
+        //   isLongEnough: (val) => {
+        //     if (val.length < 10) {
+        //       throw new Error('Please Enter a Valid Phone Number');
+        //     }
+        //   },
+        // },
       },
       creditScore: {
         type: DataTypes.INTEGER,
@@ -55,6 +55,10 @@ module.exports = (sequelize, DataTypes) => {
       type: {
         type: DataTypes.STRING,
         defaultValue: 'tenant',
+      },
+      listings: {
+        type: DataTypes.ARRAY(DataTypes.INTEGER),
+        defaultValue: [],
       },
     },
     {

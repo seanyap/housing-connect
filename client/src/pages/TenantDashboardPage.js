@@ -5,18 +5,26 @@ import Posts from '../components/Posts';
 import '../styles/dashboard.css';
 import { Link, Redirect } from 'react-router-dom';
 
-class DashboardPage extends React.Component {
-  state = {
-    listings: [],
-  };
+class TenantDashboardPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      // houseName: '',
+      // status: '',
+      name: '',
+      address: '',
+    };
+  }
+
   componentDidMount() {
-    fetch(`${process.env.REACT_APP_API_ROUTE}/api/listings`)
+    fetch(`${process.env.REACT_APP_API_ROUTE}/api/tenantsinfo`)
       .then((res) => res.json())
-      .then((listings) => {
+      .then((tenant, listing) => {
+        // console.log(tenant.tenant);
+        // console.log(tenant.listing);
         this.setState({
-          listings: listings.map((listing, index) => (
-            <Posts {...listing} key={index} />
-          )),
+          name: tenant.tenant.firstName,
+          address: tenant.listing.address,
         });
       })
       .catch((err) => console.log('API ERROR: ', err));
@@ -32,13 +40,15 @@ class DashboardPage extends React.Component {
           {/* <p>Picture of the house listing</p> */}
           {/* based on the props for the Request component will return tenant or homeowner Request */}
           <div className='dash-body'>
-            <h1 id='top'>Your Listings</h1>
-            {/* <Request houseName="House 1" user="tenant" status="accepted" />
-            <Request houseName="House 2" user="tenant" status="pending" />
-            <Request houseName="House 3" user="homeowner" /> */}
-            {this.state.listings}
-            <Link to='/new-listing' className='btn btn-primary'>
-              Create a New Listing
+            <h1 id='top'>{this.state.name}'s Requests</h1>
+
+            <Request
+              houseName={this.state.address}
+              status='pending'
+              user='tenant'
+            />
+            <Link to='/' className='btn btn-primary home'>
+              Home Page
             </Link>
           </div>
         </div>
@@ -47,4 +57,4 @@ class DashboardPage extends React.Component {
   }
 }
 
-export default DashboardPage;
+export default TenantDashboardPage;
