@@ -1,9 +1,9 @@
 import React from 'react';
 import Request from '../components/Request';
 import NavBar from '../components/NavBar';
-import Posts from '../components/Posts';
+// import Posts from '../components/Posts';
 import '../styles/dashboard.css';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class TenantDashboardPage extends React.Component {
   constructor(props) {

@@ -44,7 +44,7 @@ class Request extends React.Component {
 
   render() {
     // if (this.props.display !== 'hidden') {
-    var stat;
+    var stat = '';
     if (this.props.user === 'tenant' && this.props.display !== 'hidden') {
       return (
         <div className='request-comp tenant request main'>
