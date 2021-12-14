@@ -103,15 +103,16 @@ class NewListingPage extends React.Component {
         {errorMessage}
         <form onSubmit={this.handleSubmit} id='newlisting'>
           <h2 id='postname'>New listing!</h2>
-          {/* <label htmlFor="images"> Images: </label>
-                <input
-                  type="file"
-                  id="images"
-                  name="images"
-                  value={this.state.images}
-                  onChange={this.handleInputChange}
-                  required
-                /> */}
+          {/*   TODO fix the style of it and make sure to have the image saved on comp */}
+          <label htmlFor='images'> Images: </label>
+          <input
+            type='file'
+            id='images'
+            name='images'
+            value={this.state.images}
+            onChange={this.handleInputChange}
+            required
+          />
           <div id='input-block'>
             <label htmlFor='firstName'>First Name:</label>
             <input
