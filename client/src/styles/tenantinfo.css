@@ -1,40 +1,40 @@
-.body {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  background: url('../images/bg.png') no-repeat;
+#tenant-info-container {
+  background: url("../images/bg.png") no-repeat;
   background-position: bottom center;
   background-size: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  z-index: -1;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-input[type='number'] {
-  border: 1px solid black;
-  background-color: rgb(238, 231, 231);
-}
-.tenant-body {
-  margin-top: 15px;
+
+.tenant-info {
   background-color: white;
+  margin-top: 15px;
   border-radius: 10px;
   padding: 10px;
 }
-input[type='submit'] {
+
+#tenant-input-block {
+}
+
+input[type="number"] {
+  border: 1px solid black;
+  background-color: rgb(238, 231, 231);
+}
+input[type="submit"] {
   background-color: #f9b616;
   width: 97%;
   height: 45px;
 }
-input[type='file']::file-selector-button {
+input[type="file"]::file-selector-button {
   background-color: #f9b616;
   border: 0;
   border-radius: 5px;
   padding: 7px;
 }
-input[type='file']::file-selector-button:hover,
-input[type='submit']:hover {
+input[type="file"]::file-selector-button:hover,
+input[type="submit"]:hover {
   background-color: #fcbd29;
 }
