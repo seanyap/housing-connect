@@ -5,9 +5,13 @@ import './styles.css';
 //props - {houseName, userName, status, user (tenant or homeowner), imageURL, tenantForm}
 // function Request(props) {
 class Request extends React.Component {
-  state = {
-    imageURL: '',
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      imageURL: '',
+      status: '',
+    };
+  }
   componentDidMount() {
     // if (this.props.display === 'show') {
     fetch(`${process.env.REACT_APP_API_ROUTE}/api/sources/img/1`)
@@ -22,8 +26,25 @@ class Request extends React.Component {
       });
     // }
   }
+
+  // change = (event) => {
+  //   // console.log(event);
+  //   window.onload = () => {
+  //     document.getElementById('w3-green').hidden = true;
+  //     document.getElementById('w3-red').hidden = true;
+  //     let doc = document.getElementById('answer');
+  //     doc.innerHTML = `You have declined ${this.props.firstName}'s request :(`;
+  //     doc.classList.add('red');
+  //     this.setState({
+  //       status: 'Declined :(',
+  //     });
+  //     doc.hidden = false;
+  //   };
+  // };
+
   render() {
     // if (this.props.display !== 'hidden') {
+    var stat = 'pending';
     if (this.props.user === 'tenant' && this.props.display !== 'hidden') {
       return (
         <div className='request-comp tenant request main'>
@@ -42,20 +63,71 @@ class Request extends React.Component {
           </div>
         </div>
       );
-    } else if (this.props.display !== 'hidden') {
+    } else if (
+      this.props.user === 'homeowner' &&
+      this.props.display !== 'hidden'
+    ) {
       return (
         <div className='request-comp homeowner request main'>
           <div>
             <img id='house-pic' src={this.state.imageURL} alt='' />
           </div>
           {/* TODO: replace text with props value */}
-          <div className='info'>
-            <a href='{props.tenantForm}'>
-              {this.props.firstName} {this.props.lastName} Info
-            </a>
-            <div className='d-a-button'>
-              <button className='w3-button w3-green'>Accept</button>
-              <button className='w3-button w3-red'>Decline</button>
+
+          <div id='info'>
+            <div>
+              <h2>{this.props.houseName}</h2>
+            </div>
+            {/* <a href='{props.tenantForm}'> */}
+            {this.props.firstName} {this.props.lastName}
+            <div id='both-info'>
+              <div id='tenantinfo'>
+                <p>Email: {this.props.email}</p>
+                <p>Phone Number: {this.props.number}</p>
+                <p>Credit Score: {this.props.credit}</p>
+                <p>Income: $ {this.props.income}.00/year</p>
+              </div>
+              <div id='reqInfo'>
+                <p>Desired Average Credit Score: {this.props.reqCredit}</p>
+                <p>Desired Average Income: $ {this.props.reqIncome}.00/year</p>
+              </div>
+            </div>
+            {/* </a> */}
+            <div id='answer' hidden>
+              <p></p>
+            </div>
+            <div className='d-a-button' id='buttons'>
+              <button
+                id='w3-green'
+                onClick={
+                  // this.change('green')
+                  (event) => {
+                    document.getElementById('w3-green').hidden = true;
+                    document.getElementById('w3-red').hidden = true;
+                    let doc = document.getElementById('answer');
+                    doc.innerHTML = `You have accepted ${this.props.firstName}'s request!`;
+                    doc.classList.add('green');
+                    stat = 'Accepted!';
+                    doc.hidden = false;
+                  }
+                }
+              >
+                Accept
+              </button>
+              <button
+                id='w3-red'
+                onClick={(event) => {
+                  document.getElementById('w3-green').hidden = true;
+                  document.getElementById('w3-red').hidden = true;
+                  let doc = document.getElementById('answer');
+                  doc.innerHTML = `You have declined ${this.props.firstName}'s request :(`;
+                  doc.classList.add('red');
+                  stat = 'Declined :(';
+                  doc.hidden = false;
+                }}
+              >
+                Decline
+              </button>
             </div>
           </div>
         </div>
