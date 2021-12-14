@@ -4,7 +4,7 @@
   display: flex;
 }
 
-#bar input {
+#bar #location {
   font-size: inherit;
   margin: 0;
   border: 0;
@@ -14,7 +14,7 @@
   box-shadow: 0px 0px 8px 0 rgb(0, 0, 0, 0.1);
 }
 
-#bar button {
+#bar #btn {
   font-size: inherit;
   border: 0;
   border-radius: 0 4px 4px 0;
@@ -23,6 +23,6 @@
   background-color: #f9b616;
 }
 
-#bar button:hover {
+#bar #btn:hover {
   background-color: #e0a414;
 }
