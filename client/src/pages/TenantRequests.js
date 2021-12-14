@@ -4,20 +4,16 @@ import NavBar from '../components/NavBar';
 import Posts from '../components/Posts';
 import '../styles/dashboard.css';
 import { Link, Redirect } from 'react-router-dom';
-// import { TableHints } from 'sequelize/types';
 
-class DashboardPage extends React.Component {
+class TenantRequests extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // houseName: '',
-      // status: '',
+     
       listing: [],
-      listingId: '',
       name: '',
-      status: '',
+      listingId: '',
       address: '',
-      // status: 'pending',
       tenantFirst: '',
       tenantLast: '',
       tenantEmail: '',
@@ -26,10 +22,8 @@ class DashboardPage extends React.Component {
       tenantIncome: '',
       reqCredit: '',
       reqIncome: '',
-      // price: '',
-      // beds: '',
-      // bathrooms: '',
       display: 'hidden',
+      status: '', 
     };
   }
 
@@ -46,9 +40,6 @@ class DashboardPage extends React.Component {
             reqIncome: homeowner.listing.reqIncome,
             listingId: homeowner.listing.id,
             status: homeowner.listing.status,
-            // price: `$${homeowner.listing.rent}.00`,
-            // beds: tenant.listing.bedrooms,
-            // bathrooms: tenant.listing.bathrooms,
           });
         }
         fetch(
@@ -66,16 +57,11 @@ class DashboardPage extends React.Component {
               display: 'show',
             });
           });
-        // console.log(tenant.tenant);
-        // console.log(tenant.listing);
+     
       })
-      // .then((homeowner, listing) => {
-      //   fetch(
-      //     `${process.env.REACT_APP_API_ROUTE}/api/tenantsinfo/${homeowner.listing.id}`
-      //   ).then((res) => res.json());
-      // })
+ 
       .catch((err) => console.log('API ERROR: ', err));
-    // }
+  
   }
 
   render() {
@@ -85,11 +71,29 @@ class DashboardPage extends React.Component {
         <div className='body'>
           <div className='dash-body'>
             <h1 id='top'>{this.state.name} Listings</h1>
-            <Link to='/tenantrequests' className='btn btn-primary ten'>
-              View your visit requests!
+            <Link to='/dashboard' className='btn btn-primary home'>
+             View your listings!
             </Link>
-            <Posts {...this.state.listing} />
-    
+           
+            <Request
+              houseName={this.state.address}
+             
+              user='homeowner'
+              display={this.state.display}
+              firstName={this.state.tenantFirst}
+              lastName={this.state.tenantLast}
+              email={this.state.tenantEmail}
+              number={this.state.tenantNumber}
+              credit={this.state.tenantCredit}
+              income={this.state.tenantIncome}
+              reqCredit={this.state.reqCredit}
+              reqIncome={this.state.reqIncome}
+              listingId={this.state.listingId}
+              status={this.state.status}
+              
+            />
+            
+
             <Link to='/new-listing' className='btn btn-primary home'>
               Create a New Listing
             </Link>
@@ -100,4 +104,4 @@ class DashboardPage extends React.Component {
   }
 }
 
-export default DashboardPage;
+export default TenantRequests;

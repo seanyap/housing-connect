@@ -14,7 +14,7 @@ import ListingPage from './pages/ListingPage';
 import TenantInfoPage from './pages/TenantInfoPage';
 import Signuppage from './pages/Signuppage';
 import TenantDashboardPage from './pages/TenantDashboardPage';
-
+import TenantRequests from './pages/TenantRequests';
 const routing = (
   <AuthProvider>
     <BrowserRouter>
@@ -28,6 +28,7 @@ const routing = (
         <Route path='/new-listing' component={NewListingPage} />
         <Route path='/list/:id' component={ListingPage} />
         <Route path='/signup' component={Signuppage} />
+        <Route path='/TenantRequests' component={TenantRequests} />
       </Switch>
     </BrowserRouter>
   </AuthProvider>

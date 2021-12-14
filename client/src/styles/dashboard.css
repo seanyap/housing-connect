@@ -13,10 +13,24 @@
   border-radius: 5px;
 }
 
+
+
 .home:hover {
   background-color: #e0a414;
 }
-
+.ten:hover {
+  background-color: #e0a414;
+}
+.ten {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9b616;
+  /* width: 100px;
+  height: 40px; */
+  padding: 10px;
+  border-radius: 5px;
+}
 .dash-body {
   display: flex;
   /* justify-content: center; */
@@ -31,3 +45,4 @@
   width: 100%;
   z-index: -1;
 }
+
