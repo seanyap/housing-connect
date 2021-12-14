@@ -21,6 +21,7 @@
   padding: 7px 15px;
   border-radius: 5px;
   text-decoration: none;
+  margin-right: 5px;
 }
 
 #dashboard:hover {
