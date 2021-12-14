@@ -1,5 +1,5 @@
 .newlist-container {
-  background: url("../images/bg.png") no-repeat;
+  background: url('../images/bg.png') no-repeat;
   background-position: bottom center;
   background-size: cover;
   display: flex;
@@ -59,4 +59,23 @@
 
 #listing-submit:hover {
   background-color: #e0a414;
+}
+
+#input-image {
+  margin-top: 20px;
+  margin-bottom: 10px;
+
+  border-radius: 10px;
+}
+#input-image .choose-button {
+  /* position: absolute;
+  z-index: 1000;
+  opacity: 0;
+  cursor: pointer;
+  right: 0;
+  top: 0;
+  height: 100%;
+  font-size: 24px;
+  width: 100%; */
+  /* background-color: #e0a414; */
 }
