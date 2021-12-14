@@ -15,7 +15,7 @@
   margin-top: 100px;
   width: 500px;
   padding: 20px;
-  /* margin: 0 auto; */
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
 }
 
 #input-block input {
@@ -24,8 +24,7 @@
   margin-left: 5px;
   padding: 10px;
   border-radius: 10px;
-  /* border: 100px; */
-  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+  border: 1px solid #999;
 }
 
 /* .checkboxes {
@@ -54,6 +53,7 @@
   border-radius: 10px;
   width: 100%;
   margin-top: 10px;
+  padding: 13px 20px;
 }
 
 #listing-submit:hover {

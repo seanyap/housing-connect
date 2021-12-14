@@ -167,7 +167,11 @@ class TenantInfoPage extends React.Component {
                   onChange={this.handleInputChange}
                 /> */}
 
-            <input type="submit" value="Submit Information" />
+            <input
+              id="tenant-info-submit"
+              type="submit"
+              value="Submit Information"
+            />
           </form>
         </div>
       </div>

@@ -9,12 +9,23 @@ export default class ResultPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      searchLocation: "",
       listings: [],
     };
   }
 
   componentDidMount() {
-    fetch(`${process.env.REACT_APP_API_ROUTE}/api/listings`)
+    const location = new URLSearchParams(this.props.location.search).get(
+      "location"
+    );
+    this.setState({
+      searchLocation:
+        location.charAt(0).toUpperCase() + location.toLowerCase().slice(1),
+    });
+
+    fetch(
+      `${process.env.REACT_APP_API_ROUTE}/api/listings?location=${this.state.searchLocation}`
+    )
       .then((res) => res.json())
       .then((listings) => {
         this.setState({
@@ -34,35 +45,7 @@ export default class ResultPage extends Component {
       .catch((err) => console.log("API ERROR: ", err));
   }
 
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     rent: 0,
-  //     address: "",
-  //     listItems: [],
-  //   };
-  // }
-
-  // componentDidMount() {
-  //   // TODO: add logic to fetch for list items & instantiate the ListItem component
-  //   fetch("/api/listings")
-  //     .then((res) => res.json())
-  //     .then((listing) =>
-  //       this.setState({ rent: listing.rent, address: listing.address })
-  //     );
-  // }
-
   render() {
-    const search = this.props.location.search;
-    const locationName = new URLSearchParams(search).get("location");
-    console.log(locationName);
-    // accounts for empty search (perhaps also add required to input form)
-    const formattedLocationName =
-      locationName !== "" && locationName
-        ? locationName.charAt(0).toUpperCase() +
-          locationName.toLowerCase().slice(1)
-        : "Random Location";
-
     return (
       <>
         <NavBar isLoggedIn={false} whiteBg={true} />
@@ -76,7 +59,7 @@ export default class ResultPage extends Component {
               <h2>
                 Apartments for rent in{" "}
                 <span style={{ color: "#f9b616" }}>
-                  {formattedLocationName}
+                  {this.state.searchLocation}
                 </span>
               </h2>
             </div>
