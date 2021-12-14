@@ -28,13 +28,13 @@ export default class ResultPage extends Component {
         this.setState({
           listings: listings.map((listing, i) => (
             <div>
-              <Posts {...listing} key={i} />
-              <Link
+              <Posts {...listing} key={i} isResultPage={true} />
+              {/* <Link
                 to={`/tenant-info?listingID=${listing.id}`}
                 className="btn btn-primary home"
               >
                 Schedule a Visit
-              </Link>
+              </Link> */}
             </div>
           )),
         });
