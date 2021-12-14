@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models');
 const { Op } = require('sequelize');
+const { route } = require('./listings');
 
 const { Tenant, Listing } = db;
 
@@ -35,6 +36,22 @@ router.get('/:id', (req, res) => {
       }
     }
   );
+});
+
+router.put('/:id', (req, res) => {
+  console.log(req.body);
+  const { id } = req.params;
+  Listing.findOne({ where: { id: id } }).then((listing) => {
+    listing.status = req.body.statusButton;
+    listing.save().then((savedListing) => {
+      // console.log(savedListing);
+      res.json(savedListing);
+    });
+  });
+  // .then((listing) => {
+  //   console.log(listing);
+  //   res.json(listing);
+  // });
 });
 
 router.post('/', (req, res) => {

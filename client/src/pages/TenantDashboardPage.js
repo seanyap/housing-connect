@@ -16,6 +16,7 @@ class TenantDashboardPage extends React.Component {
       price: '',
       beds: '',
       bathrooms: '',
+      status: '',
       display: 'hidden',
     };
   }
@@ -32,6 +33,7 @@ class TenantDashboardPage extends React.Component {
             price: `$${tenant.listing.rent}.00`,
             beds: tenant.listing.bedrooms,
             bathrooms: tenant.listing.bathrooms,
+            status: tenant.listing.status,
             display: 'show',
           });
         }
@@ -56,7 +58,7 @@ class TenantDashboardPage extends React.Component {
 
             <Request
               houseName={this.state.address}
-              status='pending'
+              status={this.state.status}
               user='tenant'
               display={this.state.display}
               price={this.state.price}

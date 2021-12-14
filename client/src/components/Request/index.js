@@ -44,7 +44,7 @@ class Request extends React.Component {
 
   render() {
     // if (this.props.display !== 'hidden') {
-    var stat = 'pending';
+    var stat;
     if (this.props.user === 'tenant' && this.props.display !== 'hidden') {
       return (
         <div className='request-comp tenant request main'>
@@ -99,9 +99,34 @@ class Request extends React.Component {
             <div className='d-a-button' id='buttons'>
               <button
                 id='w3-green'
+                value='accept'
+                name='statusButton'
                 onClick={
                   // this.change('green')
                   (event) => {
+                    // console.log(this.props);
+                    // console.log(event);
+                    // console.log(this.props.listingId);
+                    fetch(
+                      `${process.env.REACT_APP_API_ROUTE}/api/tenantsinfo/${this.props.listingId}`,
+                      {
+                        method: 'PUT',
+                        headers: {
+                          'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ statusButton: 'Accepted!' }),
+                      }
+                    )
+                      .then((res) => {
+                        return res.json();
+                      })
+                      .then((listing) => {
+                        this.setState({
+                          status: listing.status,
+                        });
+                        console.log(listing);
+                      });
+
                     document.getElementById('w3-green').hidden = true;
                     document.getElementById('w3-red').hidden = true;
                     let doc = document.getElementById('answer');
@@ -116,7 +141,28 @@ class Request extends React.Component {
               </button>
               <button
                 id='w3-red'
+                name='statusButton'
+                value='deny'
                 onClick={(event) => {
+                  fetch(
+                    `${process.env.REACT_APP_API_ROUTE}/api/tenantsinfo/${this.props.listingId}`,
+                    {
+                      method: 'PUT',
+                      headers: {
+                        'Content-Type': 'application/json',
+                      },
+                      body: JSON.stringify({ statusButton: 'Denied :(' }),
+                    }
+                  )
+                    .then((res) => {
+                      return res.json();
+                    })
+                    .then((listing) => {
+                      this.setState({
+                        status: listing.status,
+                      });
+                      console.log(listing);
+                    });
                   document.getElementById('w3-green').hidden = true;
                   document.getElementById('w3-red').hidden = true;
                   let doc = document.getElementById('answer');
