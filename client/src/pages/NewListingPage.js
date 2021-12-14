@@ -13,6 +13,7 @@ class NewListingPage extends React.Component {
       firstName: '',
       lastName: '',
       address: '',
+      borough: 'brooklyn',
       bedrooms: '',
       bathrooms: '',
       rent: '',
@@ -31,6 +32,7 @@ class NewListingPage extends React.Component {
     const target = event.target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     const name = target.name;
+    console.log(name + ' ' + value);
 
     this.setState({
       [name]: value,
@@ -136,7 +138,7 @@ class NewListingPage extends React.Component {
               onChange={this.handleInputChange}
               required
             />
-          </div>{' '}
+          </div>
           <div id='input-block'>
             <label htmlFor='address'>Address:</label>
             <input
@@ -148,6 +150,21 @@ class NewListingPage extends React.Component {
               onChange={this.handleInputChange}
               required
             />
+          </div>
+          <div id='input-block'>
+            <label htmlFor='borough'>Borough:</label>
+            <select
+              id='borough'
+              name='borough'
+              value={this.state.borough}
+              onChange={this.handleInputChange}
+            >
+              <option value='brooklyn'>Brooklyn</option>
+              <option value='manhattan'>Manhattan</option>
+              <option value='queens'>Queens</option>
+              <option value='bronx'>Bronx</option>
+              <option value='staten island'>Staten Island</option>
+            </select>
           </div>
           <div id='input-block'>
             <label htmlFor='bedrooms'>Bedrooms:</label>
