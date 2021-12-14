@@ -54,7 +54,11 @@ class NavBar extends React.Component {
           <Link id='dashboard' to='/tenant-dash'>
             Tenant Dashboard
           </Link>
+          <Link id="dashboard" to="/AboutUs">
+          About Us
+        </Link>
         </div>
+       
 
         {/* <AuthButton /> */}
         {/* {this.props.isLoggedIn ? (
