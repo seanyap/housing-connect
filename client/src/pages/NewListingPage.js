@@ -1,25 +1,25 @@
-import React from "react";
-import NavBar from "../components/NavBar";
-import { Redirect } from "react-router";
+import React from 'react';
+import NavBar from '../components/NavBar';
+import { Redirect } from 'react-router';
 // import axios from 'axios';
 
-import "../styles/newlist.css";
+import '../styles/newlist.css';
 class NewListingPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       error: false,
       success: false,
-      firstName: "",
-      lastName: "",
-      address: "",
-      borough: "brooklyn",
-      bedrooms: "",
-      bathrooms: "",
-      rent: "",
-      reqIncome: "",
-      reqCredit: "",
-      extrainfo: "",
+      firstName: '',
+      lastName: '',
+      address: '',
+      borough: 'brooklyn',
+      bedrooms: '',
+      bathrooms: '',
+      rent: '',
+      reqIncome: '',
+      reqCredit: '',
+      extrainfo: '',
       // lists: [new URLSearchParams(this.props.location.search).get('listingID')],
       lists: [],
     };
@@ -30,9 +30,9 @@ class NewListingPage extends React.Component {
 
   handleInputChange(event) {
     const target = event.target;
-    const value = target.type === "checkbox" ? target.checked : target.value;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
     const name = target.name;
-    console.log(name + " " + value);
+    console.log(name + ' ' + value);
 
     this.setState({
       [name]: value,
@@ -43,9 +43,9 @@ class NewListingPage extends React.Component {
     event.preventDefault();
     fetch(`${process.env.REACT_APP_API_ROUTE}/api/listings`, {
       // fetch('/api/listings', {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(this.state),
     })
@@ -53,7 +53,7 @@ class NewListingPage extends React.Component {
         if (res.ok) {
           return res.json();
         }
-        throw new Error("Content validation");
+        throw new Error('Content validation');
       })
       .then((info) => {
         this.setState({
@@ -62,9 +62,9 @@ class NewListingPage extends React.Component {
       })
       .then((post) => {
         fetch(`${process.env.REACT_APP_API_ROUTE}/api/homeowner`, {
-          method: "POST",
+          method: 'POST',
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
           body: JSON.stringify(this.state),
         })
@@ -72,7 +72,7 @@ class NewListingPage extends React.Component {
             if (res.ok) {
               return res.json();
             }
-            throw new Error("Content validation");
+            throw new Error('Content validation');
           })
           .then((post) => {
             this.setState({
@@ -88,142 +88,143 @@ class NewListingPage extends React.Component {
   };
 
   render() {
-    if (this.state.success) return <Redirect to="/dashboard" />;
+    if (this.state.success) return <Redirect to='/dashboard' />;
 
     let errorMessage = null;
     if (this.state.error) {
       errorMessage = (
-        <div className="alert alert-danger">
+        <div className='alert alert-danger'>
           There was an error saving this post.
         </div>
       );
     }
 
     return (
-      <div className="newlist-container">
+      <div className='newlist-container'>
         <NavBar isLoggedIn={false} whiteBg={false} />
         {errorMessage}
-        <form onSubmit={this.handleSubmit} id="newlisting">
-          <h2 id="postname">New listing!</h2>
-          {/* <label htmlFor="images"> Images: </label>
-                <input
-                  type="file"
-                  id="images"
-                  name="images"
-                  value={this.state.images}
-                  onChange={this.handleInputChange}
-                  required
-                /> */}
-          <div id="input-block">
-            <label htmlFor="firstName">First Name:</label>
+        <form onSubmit={this.handleSubmit} id='newlisting'>
+          <h2 id='postname'>New listing!</h2>
+          {/*   TODO fix the style of it and make sure to have the image saved on comp */}
+          <label htmlFor='images'> Images: </label>
+          <input
+            type='file'
+            id='images'
+            name='images'
+            value={this.state.images}
+            onChange={this.handleInputChange}
+            required
+          />
+          <div id='input-block'>
+            <label htmlFor='firstName'>First Name:</label>
             <input
-              type="text"
-              placeholder="Enter First Name"
+              type='text'
+              placeholder='Enter First Name'
               // id='address'
-              name="firstName"
+              name='firstName'
               value={this.state.firstName}
               onChange={this.handleInputChange}
               required
             />
           </div>
-          <div id="input-block">
-            <label htmlFor="lastName">Last Name:</label>
+          <div id='input-block'>
+            <label htmlFor='lastName'>Last Name:</label>
             <input
-              type="text"
-              placeholder="Enter Last Name"
+              type='text'
+              placeholder='Enter Last Name'
               // id='address'
-              name="lastName"
+              name='lastName'
               value={this.state.lastName}
               onChange={this.handleInputChange}
               required
             />
           </div>
-          <div id="input-block">
-            <label htmlFor="address">Address:</label>
+          <div id='input-block'>
+            <label htmlFor='address'>Address:</label>
             <input
-              type="text"
-              placeholder="Address"
-              id="address"
-              name="address"
+              type='text'
+              placeholder='Address'
+              id='address'
+              name='address'
               value={this.state.address}
               onChange={this.handleInputChange}
               required
             />
           </div>
-          <div id="input-block">
-            <label htmlFor="borough">Borough:</label>
+          <div id='input-block'>
+            <label htmlFor='borough'>Borough:</label>
             <select
-              id="borough"
-              name="borough"
+              id='borough'
+              name='borough'
               value={this.state.borough}
               onChange={this.handleInputChange}
             >
-              <option value="brooklyn">Brooklyn</option>
-              <option value="manhattan">Manhattan</option>
-              <option value="queens">Queens</option>
-              <option value="bronx">Bronx</option>
-              <option value="staten island">Staten Island</option>
+              <option value='brooklyn'>Brooklyn</option>
+              <option value='manhattan'>Manhattan</option>
+              <option value='queens'>Queens</option>
+              <option value='bronx'>Bronx</option>
+              <option value='staten island'>Staten Island</option>
             </select>
           </div>
-          <div id="input-block">
-            <label htmlFor="bedrooms">Bedrooms:</label>
+          <div id='input-block'>
+            <label htmlFor='bedrooms'>Bedrooms:</label>
             <input
-              type="number"
-              placeholder="Bedrooms"
-              id="bedrooms"
-              name="bedrooms"
+              type='number'
+              placeholder='Bedrooms'
+              id='bedrooms'
+              name='bedrooms'
               value={this.state.bedrooms}
               onChange={this.handleInputChange}
               required
             />
           </div>
-          <div id="input-block">
-            <label htmlFor="bathrooms">Bathrooms:</label>
+          <div id='input-block'>
+            <label htmlFor='bathrooms'>Bathrooms:</label>
             <input
-              type="number"
-              placeholder="Bathrooms"
-              id="bathrooms"
-              name="bathrooms"
+              type='number'
+              placeholder='Bathrooms'
+              id='bathrooms'
+              name='bathrooms'
               value={this.state.bathrooms}
               onChange={this.handleInputChange}
               required
             />
           </div>
-          <div id="input-block">
-            <label htmlFor="rentprice">Rent price:</label>
+          <div id='input-block'>
+            <label htmlFor='rentprice'>Rent price:</label>
             <input
-              type="number"
-              placeholder="$ "
-              id="rent"
-              name="rent"
+              type='number'
+              placeholder='$ '
+              id='rent'
+              name='rent'
               value={this.state.rent}
               onChange={this.handleInputChange}
               required
             />
           </div>
-          <div id="input-block">
-            <label htmlFor="income">
+          <div id='input-block'>
+            <label htmlFor='income'>
               Income Range for potential renters/buyers:
             </label>
             <input
-              type="number"
-              placeholder="$ "
-              id="income"
-              name="reqIncome"
+              type='number'
+              placeholder='$ '
+              id='income'
+              name='reqIncome'
               value={this.state.income}
               onChange={this.handleInputChange}
               required
             />
           </div>
-          <div id="input-block">
-            <label htmlFor="credit">
+          <div id='input-block'>
+            <label htmlFor='credit'>
               Required credit score of renters/buyers:
             </label>
             <input
-              type="number"
-              placeholder="Credit score"
-              id="credit"
-              name="reqCredit"
+              type='number'
+              placeholder='Credit score'
+              id='credit'
+              name='reqCredit'
               value={this.state.credit}
               onChange={this.handleInputChange}
               required
@@ -240,19 +241,19 @@ class NewListingPage extends React.Component {
                   <label for="No">No</label>
                 </div> 
                 */}
-          <div id="input-block">
-            <label htmlFor="extrainfo">
+          <div id='input-block'>
+            <label htmlFor='extrainfo'>
               Is there any other information you would like to add?
             </label>
             <input
-              type="text"
-              id="extrainfo"
-              name="extrainfo"
+              type='text'
+              id='extrainfo'
+              name='extrainfo'
               value={this.state.extrainfo}
               onChange={this.handleInputChange}
             />
           </div>
-          <input id="listing-submit" type="submit" value="Submit" />
+          <input id='listing-submit' type='submit' value='Submit' />
         </form>
       </div>
     );

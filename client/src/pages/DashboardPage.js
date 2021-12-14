@@ -30,6 +30,7 @@ class DashboardPage extends React.Component {
       // beds: '',
       // bathrooms: '',
       display: 'hidden',
+      page: 'dash',
     };
   }
 
@@ -46,6 +47,8 @@ class DashboardPage extends React.Component {
             reqIncome: homeowner.listing.reqIncome,
             listingId: homeowner.listing.id,
             status: homeowner.listing.status,
+            display: 'show',
+
             // price: `$${homeowner.listing.rent}.00`,
             // beds: tenant.listing.bedrooms,
             // bathrooms: tenant.listing.bathrooms,
@@ -63,7 +66,7 @@ class DashboardPage extends React.Component {
               tenantNumber: tenant.tenant.phoneNumber,
               tenantCredit: tenant.tenant.creditScore,
               tenantIncome: tenant.tenant.income,
-              display: 'show',
+              // display: 'show',
             });
           });
         // console.log(tenant.tenant);
@@ -88,8 +91,12 @@ class DashboardPage extends React.Component {
             <Link to='/tenantrequests' className='btn btn-primary ten'>
               View your visit requests!
             </Link>
-            <Posts {...this.state.listing} />
-    
+            <Posts
+              {...this.state.listing}
+              display={this.state.display}
+              page={this.state.page}
+            />
+
             <Link to='/new-listing' className='btn btn-primary home'>
               Create a New Listing
             </Link>
