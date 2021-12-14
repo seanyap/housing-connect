@@ -1,25 +1,33 @@
-import React, { Component } from "react";
-import NavBar from "../components/NavBar";
-import SideMap from "../components/SideMap";
-import ListItem from "../components/ListItem";
-import { Link, Redirect } from "react-router-dom";
-import "../styles/result.css";
-import Posts from "../components/Posts";
+import React, { Component } from 'react';
+import NavBar from '../components/NavBar';
+import SideMap from '../components/SideMap';
+import ListItem from '../components/ListItem';
+import { Link, Redirect } from 'react-router-dom';
+import '../styles/result.css';
+import Posts from '../components/Posts';
 export default class ResultPage extends Component {
   state = {
     listings: [],
   };
   componentDidMount() {
-    fetch("/api/listings")
+    fetch(`${process.env.REACT_APP_API_ROUTE}/api/listings`)
       .then((res) => res.json())
       .then((listings) => {
         this.setState({
           listings: listings.map((listing, i) => (
-            <Posts {...listing} key={i} />
+            <div>
+              <Posts {...listing} key={i} />
+              <Link
+                to={`/tenant-info?listingID=${listing.id}`}
+                className='btn btn-primary'
+              >
+                Schedule a Visit
+              </Link>
+            </div>
           )),
         });
       })
-      .catch((err) => console.log("API ERROR: ", err));
+      .catch((err) => console.log('API ERROR: ', err));
   }
 
   // constructor(props) {
@@ -43,39 +51,39 @@ export default class ResultPage extends Component {
   render() {
     const search = this.props.location.search;
     const locationName = new URLSearchParams(search)
-      .get("location")
+      .get('location')
       .toLowerCase();
     // accounts for empty search (perhaps also add required to input form)
     const formattedLocationName =
-      locationName !== ""
+      locationName !== ''
         ? locationName.charAt(0).toUpperCase() + locationName.slice(1)
-        : "Random";
+        : 'Random';
 
     return (
       <>
         <NavBar isLoggedIn={false} whiteBg={true} />
-        <div id="result-container">
-          <Link to="/dashboard" className="btn btn-primary">
+        <div id='result-container'>
+          <Link to='/dashboard' className='btn btn-primary'>
             Dashboard
           </Link>
           {/* TODO: disable map rendering when in mobile device*/}
           <SideMap></SideMap>
           {/* TODO: run js loop to instantiate all list item in our state*/}
           {/* 3 dummy placeholder */}
-          <div id="right">
-            <div id="result-location">
+          <div id='right'>
+            <div id='result-location'>
               <h2>
-                Apartments for rent in{" "}
-                <span style={{ color: "#f9b616" }}>
+                Apartments for rent in{' '}
+                <span style={{ color: '#f9b616' }}>
                   {formattedLocationName}
                 </span>
               </h2>
             </div>
-            <div id="result-posts">
+            <div id='result-posts'>
               {this.state.listings}
-              <Link to="/tenant-info" className="btn btn-primary">
+              {/* <Link to='/tenant-info' className='btn btn-primary'>
                 Schedule a Visit
-              </Link>
+              </Link> */}
               {/* <Posts
               
                 id="post"
