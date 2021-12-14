@@ -13,8 +13,11 @@ class DashboardPage extends React.Component {
       // houseName: '',
       // status: '',
       listing: [],
+      listingId: '',
       name: '',
+      status: '',
       address: '',
+      // status: 'pending',
       tenantFirst: '',
       tenantLast: '',
       tenantEmail: '',
@@ -41,6 +44,8 @@ class DashboardPage extends React.Component {
             address: homeowner.listing.address,
             reqCredit: homeowner.listing.reqCredit,
             reqIncome: homeowner.listing.reqIncome,
+            listingId: homeowner.listing.id,
+            status: homeowner.listing.status,
             // price: `$${homeowner.listing.rent}.00`,
             // beds: tenant.listing.bedrooms,
             // bathrooms: tenant.listing.bathrooms,
@@ -95,6 +100,8 @@ class DashboardPage extends React.Component {
               income={this.state.tenantIncome}
               reqCredit={this.state.reqCredit}
               reqIncome={this.state.reqIncome}
+              listingId={this.state.listingId}
+              status={this.state.status}
               // price={this.state.price}
               // beds={this.state.beds}
               // bathrooms={this.state.bathrooms}
