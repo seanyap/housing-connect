@@ -10,7 +10,7 @@ import ResultPage from './pages/ResultPage';
 import DashboardPage from './pages/DashboardPage';
 import LoginPage from './pages/LoginPage';
 import NewListingPage from './pages/NewListingPage';
-import ListingPage from './pages/ListingPage';
+import AboutUs from './pages/AboutUs';
 import TenantInfoPage from './pages/TenantInfoPage';
 import Signuppage from './pages/Signuppage';
 import TenantDashboardPage from './pages/TenantDashboardPage';
@@ -26,7 +26,7 @@ const routing = (
         <Route path='/tenant-dash' component={TenantDashboardPage} />
         <Route path='/tenant-info' component={TenantInfoPage} />
         <Route path='/new-listing' component={NewListingPage} />
-        <Route path='/list/:id' component={ListingPage} />
+        <Route path='/AboutUs' component={AboutUs} />
         <Route path='/signup' component={Signuppage} />
         <Route path='/TenantRequests' component={TenantRequests} />
       </Switch>
