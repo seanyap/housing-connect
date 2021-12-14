@@ -47,7 +47,11 @@ class NavBar extends React.Component {
         <Link to="/">
           <h1 id="nav-logo">Housing Connect</h1>
         </Link>
-        <AuthButton />
+        <Link id="dashboard" to="/tenant-dash">
+          Dashboard
+        </Link>
+
+        {/* <AuthButton /> */}
         {/* {this.props.isLoggedIn ? (
           <Login whiteBg={this.props.whiteBg} />
         ) : (

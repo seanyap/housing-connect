@@ -67,9 +67,6 @@ export default class ResultPage extends Component {
       <>
         <NavBar isLoggedIn={false} whiteBg={true} />
         <div id="result-container">
-          <Link to="/dashboard" className="btn btn-primary">
-            Dashboard
-          </Link>
           {/* TODO: disable map rendering when in mobile device*/}
           <SideMap></SideMap>
           {/* TODO: run js loop to instantiate all list item in our state*/}
@@ -88,26 +85,6 @@ export default class ResultPage extends Component {
               {/* <Link to='/tenant-info' className='btn btn-primary'>
                 Schedule a Visit
               </Link> */}
-              {/* <Posts
-              
-                id="post"
-                name="1"
-                
-                rent={this.state.listings}
-                address={this.state.listings}
-              ></Posts>
-              <Posts
-                id="post"
-                name="2"
-                rent={this.state.listing}
-                address={this.state.listing}
-              ></Posts>
-              <Posts
-                id="post"
-                name="3"
-                rent={this.state.listing}
-                address={this.state.listing}
-              ></Posts> */}
             </div>
           </div>
         </div>
