@@ -13,21 +13,41 @@ class TenantDashboardPage extends React.Component {
       // status: '',
       name: '',
       address: '',
+      price: '',
+      beds: '',
+      bathrooms: '',
+      display: 'hidden',
     };
   }
 
   componentDidMount() {
+    // if (this.state.display !== 'hidden') {
     fetch(`${process.env.REACT_APP_API_ROUTE}/api/tenantsinfo`)
       .then((res) => res.json())
       .then((tenant, listing) => {
+        if (tenant) {
+          this.setState({
+            name: `${tenant.tenant.firstName}'s`,
+            address: tenant.listing.address,
+            price: `$${tenant.listing.rent}.00`,
+            beds: tenant.listing.bedrooms,
+            bathrooms: tenant.listing.bathrooms,
+            display: 'show',
+            // requests: tenant.map((tenant, index) => (
+            //   <Request
+            //     houseName={tenant.listing.address}
+            //     status='pending'
+            //     user='tenant'
+            //     key={index}
+            //   />
+            // )),
+          });
+        }
         // console.log(tenant.tenant);
         // console.log(tenant.listing);
-        this.setState({
-          name: tenant.tenant.firstName,
-          address: tenant.listing.address,
-        });
       })
       .catch((err) => console.log('API ERROR: ', err));
+    // }
   }
 
   render() {
@@ -40,15 +60,20 @@ class TenantDashboardPage extends React.Component {
           {/* <p>Picture of the house listing</p> */}
           {/* based on the props for the Request component will return tenant or homeowner Request */}
           <div className='dash-body'>
-            <h1 id='top'>{this.state.name}'s Requests</h1>
+            <h1 id='top'>{this.state.name} Requests</h1>
 
             <Request
               houseName={this.state.address}
               status='pending'
               user='tenant'
+              display={this.state.display}
+              price={this.state.price}
+              beds={this.state.beds}
+              bathrooms={this.state.bathrooms}
             />
+
             <Link to='/' className='btn btn-primary home'>
-              Home Page
+              Search for New Listings
             </Link>
           </div>
         </div>

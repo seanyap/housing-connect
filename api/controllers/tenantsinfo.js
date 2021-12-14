@@ -8,9 +8,12 @@ const { Tenant, Listing } = db;
 router.get('/', (req, res) => {
   // retrieve all listings from database
   Tenant.findOne({}).then((tenant) => {
-    Listing.findOne({ where: { id: tenant.listings[0] } }).then((listing) => {
-      res.json({ tenant: tenant, listing: listing });
-    });
+    // console.log(tenant.listings.length);
+    if (tenant) {
+      Listing.findOne({ where: { id: tenant.listings[0] } }).then((listing) => {
+        res.json({ tenant: tenant, listing: listing });
+      });
+    }
   });
 });
 
