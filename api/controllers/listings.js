@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../models');
-const { Listing } = db;
+const { Listing, Homeowner } = db;
 
 // route handlers
 router.get('/', (req, res) => {
   // retrieve all listings from database
   Listing.findAll({}).then((listings) => {
-    console.log(listings);
+    // console.log(listings);
     res.json(listings);
   });
 });
@@ -22,7 +22,18 @@ router.get('/:id', (req, res) => {
   });
 });
 router.post('/', (req, res) => {
-  const { address, rent, bedrooms, bathrooms, reqIncome, reqCredit } = req.body;
+  const {
+    address,
+    rent,
+    bedrooms,
+    bathrooms,
+    reqIncome,
+    reqCredit,
+    ownerId,
+    // firstName,
+    // lastName,
+    // lists,
+  } = req.body;
 
   Listing.create({
     address,
@@ -31,7 +42,14 @@ router.post('/', (req, res) => {
     bathrooms,
     reqIncome,
     reqCredit,
+    ownerId,
   }).then((listing) => res.status(201).json(listing));
+
+  // Homeowner.create({
+  //   firstName,
+  //   lastName,
+  //   lists,
+  // }).then((homeowner) => res.status(201).json(homeowner));
 });
 
 module.exports = router;

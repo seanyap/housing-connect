@@ -4,42 +4,62 @@
   padding-right: 60px;
   /* display: flex; */
 }
+#info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#both-info {
+  display: flex;
+  align-items: flex-end;
+}
+#reqInfo {
+  margin-left: 10px;
+}
 .request {
   display: flex;
   border: 1px solid black;
   border-radius: 10px;
   padding: 10px;
   justify-content: space-between;
-  width: 80%;
+  /* width: 80%; */
   margin-bottom: 10px;
   background-color: white;
 }
+#answer {
+  padding-top: 5px;
+  display: flex;
+  justify-content: center;
+  margin-right: 5px;
+}
 
-/* request-comp */
-/* p {
-  -ms-flex-align: left;
-} */
 .d-a-button {
   padding-top: 5px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-end;
   margin-right: 5px;
 }
 img {
   height: 100px;
   width: 150px;
+  margin-right: 20px;
 }
-button {
+#w3-green,
+#w3-red,
+.green,
+.red {
   margin-right: 10px;
   padding: 5px;
   /* border: 0; */
   border-radius: 5px;
 }
 
-.w3-green {
+#w3-green,
+.green {
   background-color: #65ba45;
 }
-.w3-red {
+#w3-red,
+.red {
   background-color: #ef1012;
 }
 a {

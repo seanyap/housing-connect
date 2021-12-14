@@ -33,14 +33,6 @@ class TenantDashboardPage extends React.Component {
             beds: tenant.listing.bedrooms,
             bathrooms: tenant.listing.bathrooms,
             display: 'show',
-            // requests: tenant.map((tenant, index) => (
-            //   <Request
-            //     houseName={tenant.listing.address}
-            //     status='pending'
-            //     user='tenant'
-            //     key={index}
-            //   />
-            // )),
           });
         }
         // console.log(tenant.tenant);
