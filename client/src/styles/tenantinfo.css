@@ -16,25 +16,5 @@
   padding: 10px;
 }
 
-#tenant-input-block {
-}
-
-input[type="number"] {
-  border: 1px solid black;
-  background-color: rgb(238, 231, 231);
-}
-input[type="submit"] {
-  background-color: #f9b616;
-  width: 97%;
-  height: 45px;
-}
-input[type="file"]::file-selector-button {
-  background-color: #f9b616;
-  border: 0;
-  border-radius: 5px;
-  padding: 7px;
-}
-input[type="file"]::file-selector-button:hover,
-input[type="submit"]:hover {
-  background-color: #fcbd29;
-}
+/* #tenant-input-block {
+} */

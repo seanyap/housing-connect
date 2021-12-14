@@ -37,12 +37,13 @@ p {
   font-size: 12px;
 }
 
-input[type="text"],
+/* DO NOT UNCOMMENT BELOW CODE, WRITE A NEW ID SELECTOR!!!!! */
+/* input[type="text"],
 input[type="password"],
 input[type="email"] {
   border: 1px solid black;
   background-color: rgb(238, 231, 231);
-}
+} */
 /* input[type="submit"] {
   background-color: #f9b616;
   width: 300px;
