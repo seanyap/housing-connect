@@ -15,17 +15,14 @@ export default class ResultPage extends Component {
   }
 
   componentDidMount() {
-    const location = new URLSearchParams(this.props.location.search).get(
-      "location"
-    );
+    const location = new URLSearchParams(this.props.location.search)
+      .get("location")
+      .toLowerCase();
     this.setState({
-      searchLocation:
-        location.charAt(0).toUpperCase() + location.toLowerCase().slice(1),
+      searchLocation: location,
     });
 
-    fetch(
-      `${process.env.REACT_APP_API_ROUTE}/api/listings?location=${this.state.searchLocation}`
-    )
+    fetch(`${process.env.REACT_APP_API_ROUTE}/api/listings/${location}`)
       .then((res) => res.json())
       .then((listings) => {
         this.setState({
