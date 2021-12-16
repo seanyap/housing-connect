@@ -1,0 +1,56 @@
+.aboutus {
+  background: url("../images/bg.png") no-repeat;
+  background-position: bottom center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+
+ 
+
+}
+#about{
+ 
+  margin-top: 100px; 
+  background-color: #eee;
+  padding: 30px;
+  border-radius: 10px;
+  
+}
+#about h1{
+  text-align: center;
+}
+.info {
+  border: solid #999 1px;
+  padding:20px;
+  margin-top:10px;
+  border-radius: 20px;
+ 
+  /* text-align: center;
+  font-family: "Times New Roman", Times, serif;
+  float: left;
+  width: 33.33%;
+  margin-top: 100px; */
+
+}
+#details{
+font-size: 20px;
+text-align: center;
+
+}
+#links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 10px;
+  border-radius: 5px;
+}
+#links a{ 
+  background-color: #f9b616;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 15px;
+}

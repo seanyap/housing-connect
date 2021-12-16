@@ -27,24 +27,9 @@ class Request extends React.Component {
     // }
   }
 
-  // change = (event) => {
-  //   // console.log(event);
-  //   window.onload = () => {
-  //     document.getElementById('w3-green').hidden = true;
-  //     document.getElementById('w3-red').hidden = true;
-  //     let doc = document.getElementById('answer');
-  //     doc.innerHTML = `You have declined ${this.props.firstName}'s request :(`;
-  //     doc.classList.add('red');
-  //     this.setState({
-  //       status: 'Declined :(',
-  //     });
-  //     doc.hidden = false;
-  //   };
-  // };
-
   render() {
     // if (this.props.display !== 'hidden') {
-    var stat;
+    var stat = '';
     if (this.props.user === 'tenant' && this.props.display !== 'hidden') {
       return (
         <div className='request-comp tenant request main'>
@@ -178,14 +163,19 @@ class Request extends React.Component {
           </div>
         </div>
       );
-    } else {
+    } else if (this.props.user === 'tenant') {
       return (
         <div>
           <h2>You have not made any requests yet!</h2>
         </div>
       );
+    } else {
+      return (
+        <div>
+          <h2>You have no requests yet</h2>
+        </div>
+      );
     }
-    // }
   }
 }
 
