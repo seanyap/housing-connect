@@ -26,3 +26,26 @@ and tours to interested renters/buyers. It would certainly be very disappointing
 if they find out later that the person they are pitching to does not meet all the
 requirements they are looking for and it is because they forgot to mention them
 in the beginning.
+
+## Setting up the environment
+
+- Install postgreSQL if you don't have it already and create a database
+- `git clone https://github.com/seanyap/housing-connect.git`
+- Create an empty .env file in /api, copy /api/.env.example contents into it, and fill in your database username and password.
+- Run `npm install` in both the root `/` path and server '/api' path
+- Create an empty `.env` file in `/api`, copy `/api/.env.example` contents into it, and fill in your database username and password
+- Run `npm start` in both root and server path
+- React application should be running on localhost:3000; Server should be running on localhost:8080
+
+## What's missing?
+
+There are features missing from this showcase product which should exist in a real product:
+
+### User authentication system
+
+We were trying to setup the authentication but due to not having much experience
+with working the encyption and user sessions, we had many errors and issues along
+the way. Ultimately, we decided that we would be better off focusing on the other
+tasks that we had planned just so we could be able to deliver a prototype by
+our demo presentation date. This is a feature that we will definitely need to
+continue working on.
